@@ -16,5 +16,15 @@ namespace POE_proyecto.Vista
         {
             InitializeComponent();
         }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nuevoClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
