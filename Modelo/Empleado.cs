@@ -1,6 +1,6 @@
 ﻿namespace POE_proyecto.Modelo
 {
-    internal class Empleado : Persona
+    public class Empleado : Persona
     {
         #region fields
         public int CodigoEmpleado { get; set; }
@@ -8,7 +8,7 @@
         #endregion
 
         #region constructors
-        public Empleado(){}
+        public Empleado() { }
 
         public Empleado(string cedula, string nombres, string apellidos, string direccion, string correo, string numeroTelefono, DateTime fechaNacimiento, int codigoEmpleado, DateTime fechaIngreso)
             : base(cedula, nombres, apellidos, direccion, correo, numeroTelefono, fechaNacimiento)

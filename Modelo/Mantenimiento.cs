@@ -1,6 +1,6 @@
 ﻿namespace POE_proyecto.Modelo
 {
-    internal class Mantenimiento
+    public class Mantenimiento
     {
         #region fields
         public int Codigo { get; set; }

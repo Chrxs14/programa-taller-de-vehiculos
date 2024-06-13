@@ -1,6 +1,6 @@
 ﻿namespace POE_proyecto.Modelo
 {
-    internal class Vehiculo
+    public class Vehiculo
     {
         #region fields
         public string? Placa { get; set; }
@@ -11,7 +11,7 @@
         #endregion
 
         #region constructors
-        public Vehiculo(){}
+        public Vehiculo() { }
         public Vehiculo(string placa, string marca, string modelo, string anio, string kilometraje)
         {
             Placa = placa;

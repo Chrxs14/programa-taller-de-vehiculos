@@ -1,6 +1,6 @@
 ﻿namespace POE_proyecto.Modelo
 {
-    internal class Servicio
+    public class Servicio
     {
         // Tengo la IDEA de agregar el encargado de realizar el servicio y asi le damos uso a la clase Empleado
         #region fields
@@ -13,7 +13,7 @@
         #endregion
 
         #region constructors
-        public Servicio(){}
+        public Servicio() { }
         public Servicio(int codigo, string nombre, int precio, string descripcion)
         {
             Codigo = codigo;

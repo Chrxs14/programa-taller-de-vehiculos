@@ -1,7 +1,7 @@
 ﻿namespace POE_proyecto.Modelo
 {
-    internal class Persona 
-    {   
+    public class Persona
+    {
         // Aqui me indicaba usar required o ? para poder decir si el campo sera requerido o puede ser nulo, pero se resolvio colocando un constructor por defecto con
         // campos en nulo (estara bien?, estara mal?, sabe dios)
         // Update: Al final lo cambie por que me parece mejor jaja
