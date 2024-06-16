@@ -46,6 +46,17 @@ namespace POE_proyecto.Utilidades
             return ValidarCedula(cedula) && ValidarNombres(nombres) && ValidarNombres(apellidos) && ValidarCadena(direccion) && ValidarCorreo(correo) && 
                    ValidarTelefono(numeroTelefono) && ValidarFechaNacimiento(fechaNacimiento) && ValidarCadena(especialidad) && ValidarNivelDeExperiencia(nivelDeExperiencia);
         }
+
+        /// <summary>
+        /// Valida los campos proporcionados del mantenimiento.
+        /// </summary>
+        /// <returns>
+        /// <c></c> si todos los campos son válidos; de lo contrario, <c>false</c>.
+        /// </returns>
+        public static bool ValidarCamposMantenimiento(DateTime fechaMantenimiento, string diagnostico, string trabajosRealizados)
+        {
+            return ValidarFechaNacimiento(fechaMantenimiento) && ValidarCadena(diagnostico) && ValidarCadena(trabajosRealizados);
+        }
         #endregion
 
         #region Métodos privados
