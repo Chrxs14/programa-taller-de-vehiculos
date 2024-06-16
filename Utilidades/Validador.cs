@@ -17,7 +17,7 @@ namespace POE_proyecto.Utilidades
         /// <returns>
         /// <c>true</c> si todos los campos son válidos; de lo contrario, <c>false</c>.
         /// </returns>
-        public static bool CamposCliente(string cedula, string correo, string numeroTelefono, string nombres, string apellidos, string direccion, DateTime fechaNacimiento)
+        public static bool ValidarCamposCliente(string cedula, string correo, string numeroTelefono, string nombres, string apellidos, string direccion, DateTime fechaNacimiento)
         {
             return ValidarCedula(cedula) && ValidarCorreo(correo) && ValidarTelefono(numeroTelefono) &&
                    ValidarNombres(nombres) && ValidarNombres(apellidos) && ValidarCadena(direccion) && ValidarFechaNacimiento(fechaNacimiento);
@@ -29,9 +29,22 @@ namespace POE_proyecto.Utilidades
         /// <returns>
         /// <c>true</c> si todos los campos son válidos; de lo contrario, <c>false</c>.
         /// </returns>
-        public static bool CamposVehiculo(string placa, string marca, string modelo, string anio, string kilometraje)
+        public static bool ValidarCamposVehiculo(string placa, string marca, string modelo, string anio, string kilometraje)
         {
             return ValidarPlaca(placa) && ValidarCadena(marca) && ValidarCadena(modelo) && ValidarAnio(anio) && ValidarKilometraje(kilometraje);
+        }
+
+        /// <summary>
+        /// Valida los campos proporcionados del mecánico.
+        /// </summary>
+        /// <returns>
+        /// <c>true</c> si todos los campos son válidos; de lo contrario, <c>false</c>.
+        /// </returns>
+        public static bool ValidarCamposMecanico(string cedula, string nombres, string apellidos, string direccion, string correo, string numeroTelefono
+                , DateTime fechaNacimiento, string especialidad, string nivelDeExperiencia)
+        {
+            return ValidarCedula(cedula) && ValidarNombres(nombres) && ValidarNombres(apellidos) && ValidarCadena(direccion) && ValidarCorreo(correo) && 
+                   ValidarTelefono(numeroTelefono) && ValidarFechaNacimiento(fechaNacimiento) && ValidarCadena(especialidad) && ValidarNivelDeExperiencia(nivelDeExperiencia);
         }
         #endregion
 
@@ -137,6 +150,18 @@ namespace POE_proyecto.Utilidades
         public static bool ValidarKilometraje(string kilometraje)
         {
             return BigInteger.TryParse(kilometraje, out _);
+        }
+
+        /// <summary>
+        /// Valida que el nivel de experiencia sea uno de los valores permitidos.
+        /// </summary>
+        /// <returns>
+        /// <c>true</c> si el nivel de experiencia es válido; de lo contrario, <c>false</c>.
+        /// </returns>
+        public static bool ValidarNivelDeExperiencia(string nivelDeExperiencia)
+        {
+            nivelDeExperiencia = nivelDeExperiencia.ToLower();
+            return nivelDeExperiencia == "principiante" || nivelDeExperiencia == "intermedio" || nivelDeExperiencia == "avanzado";
         }
         #endregion
     }
