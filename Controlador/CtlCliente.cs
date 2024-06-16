@@ -11,9 +11,9 @@ namespace POE_proyecto.Controlador
         #endregion
 
         #region Methods
-        public IReadOnlyDictionary<int, Cliente> ObtenerClientes()
+        public IReadOnlyList<Cliente> ObtenerClientes()
         {
-            return AlmacenDeDatos.Clientes;
+            return AlmacenDeDatos.ClientesList;
         }
 
         public bool AgregarCliente(int codigoCliente, string nombres, string apellidos, string cedula, string direccion, string numeroTelefono)
@@ -31,7 +31,7 @@ namespace POE_proyecto.Controlador
                 };
 
                 // Agregar cliente al almacen de datos
-                AlmacenDeDatos.AgregarCliente(codigoCliente, nuevoCliente);
+                AlmacenDeDatos.AgregarCliente(nuevoCliente);
                 return true;
             }
             else

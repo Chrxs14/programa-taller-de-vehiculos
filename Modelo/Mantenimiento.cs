@@ -17,7 +17,7 @@
         #region constructors
         public Mantenimiento()
         {
-            ListaServiciosRealizados = new List<Servicio>();
+            ListaServiciosRealizados = new();
         }
         public Mantenimiento(int codigo, Cliente cliente, Mecanico mecanico, DateTime fechaMantenimiento, Vehiculo vehiculo, string diagnostico, string trabajosRealizados, bool esCorrectivo, List<Servicio> listaServiciosRealizados)
         {

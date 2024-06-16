@@ -10,6 +10,8 @@ namespace POE_proyecto
         [STAThread]
         static void Main()
         {
+            //var host = IHost.CreateDefaultBuilder().
+
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             // TOCARA INVESTIGAR MEJOR ESTO, POR QUE NI IDEA POR QUE SE NECESITAN SETEAR ESTOS METODOS PRIMERO (Se saca y se rompe todo jaja)

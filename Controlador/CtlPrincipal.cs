@@ -12,7 +12,7 @@ namespace POE_proyecto.Controlador
         #region constructors
         public CtlPrincipal()
         {
-            ctlCliente = new CtlCliente();
+            ctlCliente = new();
         }
         #endregion
 
