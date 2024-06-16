@@ -36,9 +36,14 @@
             homeBtn = new FontAwesome.Sharp.IconButton();
             panelLogo = new Panel();
             pictureBox1 = new PictureBox();
+            panelTitleBar = new Panel();
+            titlePageLabel = new Label();
+            iconChildForm = new FontAwesome.Sharp.IconPictureBox();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panelTitleBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)iconChildForm).BeginInit();
             SuspendLayout();
             // 
             // panelMenu
@@ -191,21 +196,61 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
+            // panelTitleBar
+            // 
+            panelTitleBar.BackColor = Color.FromArgb(24, 29, 46);
+            panelTitleBar.Controls.Add(titlePageLabel);
+            panelTitleBar.Controls.Add(iconChildForm);
+            panelTitleBar.Dock = DockStyle.Top;
+            panelTitleBar.Location = new Point(220, 0);
+            panelTitleBar.Name = "panelTitleBar";
+            panelTitleBar.Size = new Size(664, 75);
+            panelTitleBar.TabIndex = 1;
+            panelTitleBar.Paint += panelTitleBar_Paint;
+            panelTitleBar.MouseDown += panelTitleBar_MouseDown;
+            // 
+            // titlePageLabel
+            // 
+            titlePageLabel.AutoSize = true;
+            titlePageLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            titlePageLabel.ForeColor = Color.White;
+            titlePageLabel.Location = new Point(60, 29);
+            titlePageLabel.Name = "titlePageLabel";
+            titlePageLabel.Size = new Size(56, 21);
+            titlePageLabel.TabIndex = 1;
+            titlePageLabel.Text = "Home";
+            // 
+            // iconChildForm
+            // 
+            iconChildForm.BackColor = Color.FromArgb(36, 44, 69);
+            iconChildForm.IconChar = FontAwesome.Sharp.IconChar.HouseChimney;
+            iconChildForm.IconColor = Color.White;
+            iconChildForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconChildForm.Location = new Point(25, 23);
+            iconChildForm.Name = "iconChildForm";
+            iconChildForm.Size = new Size(32, 32);
+            iconChildForm.TabIndex = 0;
+            iconChildForm.TabStop = false;
             // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(884, 561);
+            Controls.Add(panelTitleBar);
             Controls.Add(panelMenu);
             Name = "FrmPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmPrincipal";
-            WindowState = FormWindowState.Maximized;
             Load += FrmPrincipal_Load;
             panelMenu.ResumeLayout(false);
             panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panelTitleBar.ResumeLayout(false);
+            panelTitleBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)iconChildForm).EndInit();
             ResumeLayout(false);
         }
 
@@ -219,5 +264,8 @@
         private FontAwesome.Sharp.IconButton vehicleManageBtn;
         private FontAwesome.Sharp.IconButton clientManageBtn;
         private PictureBox pictureBox1;
+        private Panel panelTitleBar;
+        private FontAwesome.Sharp.IconPictureBox iconChildForm;
+        private Label titlePageLabel;
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Windows.Media;
 using FontAwesome.Sharp;
 using Color = System.Drawing.Color;
+using System.Runtime.InteropServices;
 
 namespace POE_proyecto.Vista
 {
@@ -56,6 +57,11 @@ namespace POE_proyecto.Vista
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
+
+                // Icon Current Child Form
+                iconChildForm.IconChar = currentBtn.IconChar;
+                iconChildForm.IconColor = color;
+                titlePageLabel.Text = currentBtn.Text;
 
             }
         }
@@ -126,6 +132,36 @@ namespace POE_proyecto.Vista
         private void reportBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
+
+        private void Reset()
+        {
+            DisableButton();
+            leftBorderBtn.Visible = false;
+            iconChildForm.IconChar = IconChar.HouseChimney;
+            iconChildForm.IconColor = Color.White;
+            titlePageLabel.Text = "Home";
+        }
+        //DragForm
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void panelTitleBar_Paint(object sender, PaintEventArgs e)
+        {
+        }
+
+        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }
