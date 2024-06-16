@@ -5,27 +5,33 @@ namespace POE_proyecto.Datos
 {
     public static class AlmacenDeDatos
     {
-        private static readonly Dictionary<int, Cliente> clientes = new Dictionary<int, Cliente>();
-        private static readonly Dictionary<int, Mecanico> mecanicos = new Dictionary<int, Mecanico>();
-        private static readonly Dictionary<int, Mantenimiento> mantenimientos = new Dictionary<int, Mantenimiento>();
+        private static readonly List<Cliente> Clientes = new();
+        private static readonly List<Mecanico> Mecanicos = new();
+        private static readonly List<Mantenimiento> Mantenimientos = new();
+        private static readonly List<Vehiculo> Vehiculos = new();
+        public static IReadOnlyList<Cliente> ClientesList => Clientes.AsReadOnly();
+        public static IReadOnlyList<Mecanico> MecanicosList => Mecanicos.AsReadOnly();
+        public static IReadOnlyList<Mantenimiento> MantenimientosList => Mantenimientos.AsReadOnly();
+        public static IReadOnlyList<Vehiculo> VehiculosList => Vehiculos.AsReadOnly();
 
-        public static IReadOnlyDictionary<int, Cliente> Clientes => clientes;
-        public static IReadOnlyDictionary<int, Mecanico> Mecanicos => mecanicos;
-        public static IReadOnlyDictionary<int, Mantenimiento> Mantenimientos => mantenimientos;
-
-        public static void AgregarCliente(int codigoCliente, Cliente cliente)
+        public static void AgregarCliente(Cliente cliente)
         {
-            clientes[codigoCliente] = cliente;
+            Clientes.Add(cliente);
         }
 
-        public static void AgregarMecanico(int codigoMecanico, Mecanico mecanico)
+        public static void AgregarMecanico(Mecanico mecanico)
         {
-            mecanicos[codigoMecanico] = mecanico;
+            Mecanicos.Add(mecanico);
         }
 
-        public static void AgregarMantenimiento(int codigoMantenimiento, Mantenimiento mantenimiento)
+        public static void AgregarMantenimiento(Mantenimiento mantenimiento)
         {
-            mantenimientos[codigoMantenimiento] = mantenimiento;
+            Mantenimientos.Add(mantenimiento);
+        }
+
+        public static void AgregarVehiculo(Vehiculo vehiculo)
+        {
+            Vehiculos.Add(vehiculo);
         }
     }
 }

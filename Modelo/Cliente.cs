@@ -9,10 +9,7 @@
         #endregion
 
         #region constructors
-        public Cliente()
-        {
-
-        }
+        public Cliente() {}
         public Cliente(int codigoCliente, string cedula, string nombres, string apellidos, string direccion, string correo, string numeroTelefono, DateTime fechaNacimiento, string referencia, DateTime fechaRegistro)
             : base(cedula, nombres, apellidos, direccion, correo, numeroTelefono, fechaNacimiento)
         {

@@ -5,6 +5,7 @@
         #region fields
         public string? Especialidad { get; set; }
         public string? NivelDeExperiencia { get; set; }
+        public bool EstaActivo { get; set; }
         #endregion
 
         #region constructors
@@ -15,6 +16,7 @@
         {
             Especialidad = especialidad;
             NivelDeExperiencia = nivelDeExperiencia;
+            EstaActivo = true;
         }
         #endregion
     }

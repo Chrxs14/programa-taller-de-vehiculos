@@ -3,7 +3,7 @@
     public class Mantenimiento
     {
         #region fields
-        public int Codigo { get; set; }
+        public string Codigo { get; set; }
         public Cliente Cliente { get; set; }
         public Mecanico Mecanico { get; set; }
         public DateTime FechaMantenimiento { get; set; }
@@ -15,11 +15,7 @@
         #endregion
 
         #region constructors
-        public Mantenimiento()
-        {
-            ListaServiciosRealizados = new List<Servicio>();
-        }
-        public Mantenimiento(int codigo, Cliente cliente, Mecanico mecanico, DateTime fechaMantenimiento, Vehiculo vehiculo, string diagnostico, string trabajosRealizados, bool esCorrectivo, List<Servicio> listaServiciosRealizados)
+        public Mantenimiento(string codigo, Cliente cliente, Mecanico mecanico, DateTime fechaMantenimiento, Vehiculo vehiculo, string diagnostico, string trabajosRealizados, bool esCorrectivo, List<Servicio> listaServiciosRealizados)
         {
             Codigo = codigo;
             Cliente = cliente;
