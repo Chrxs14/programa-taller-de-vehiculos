@@ -200,5 +200,139 @@ namespace POE_proyecto.Vista
         {
 
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new FormHome());
+        }
+
+        private void iconButton1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButton1_Click_2(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new FormGestionClientes());
+        }
+
+        private void panel2_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void vehicleManageBtn_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new FormGestionVehiculos());
+        }
+
+        private void maintenanceManageBtn_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new FormGestionMantenimientos());
+        }
+
+        private void reportBtn_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new FormReporte());
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+            Reset();
+        }
+
+        private void Reset()
+        {
+            DisableButton();
+            leftBorderBtn.Visible = false;
+            iconChildForm.IconChar = IconChar.HouseChimney;
+            iconChildForm.IconColor = Color.White;
+            titlePageLabel.Text = "Home";
+        }
+        //DragForm
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void panelTitleBar_Paint(object sender, PaintEventArgs e)
+        {
+        }
+
+        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+        }
+
+        private void iconButton1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButton1_Click_2(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+        }
+
+        private void panel2_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void vehicleManageBtn_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+        }
+
+        private void maintenanceManageBtn_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+        }
+
+        private void reportBtn_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+        }
     }
 }
