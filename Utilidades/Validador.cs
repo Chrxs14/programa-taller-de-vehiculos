@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Numerics;
+using System.Reflection;
 using System.Text.RegularExpressions;
 
 namespace POE_proyecto.Utilidades
@@ -8,6 +10,7 @@ namespace POE_proyecto.Utilidades
     /// </summary>
     public static class Validador
     {
+        #region Métodos publicos
         /// <summary>
         /// Valida los campos proporcionados del cliente.
         /// </summary>
@@ -17,10 +20,22 @@ namespace POE_proyecto.Utilidades
         public static bool CamposCliente(string cedula, string correo, string numeroTelefono, string nombres, string apellidos, string direccion, DateTime fechaNacimiento)
         {
             return ValidarCedula(cedula) && ValidarCorreo(correo) && ValidarTelefono(numeroTelefono) &&
-                   ValidarNombres(nombres) && ValidarNombres(apellidos) && ValidarDireccion(direccion) && ValidarFechaNacimiento(fechaNacimiento);
+                   ValidarNombres(nombres) && ValidarNombres(apellidos) && ValidarCadena(direccion) && ValidarFechaNacimiento(fechaNacimiento);
         }
 
+        /// <summary>
+        /// Valida los campos proporcionados del vehículo.
+        /// </summary>
+        /// <returns>
+        /// <c>true</c> si todos los campos son válidos; de lo contrario, <c>false</c>.
+        /// </returns>
+        public static bool CamposVehiculo(string placa, string marca, string modelo, string anio, string kilometraje)
+        {
+            return ValidarPlaca(placa) && ValidarCadena(marca) && ValidarCadena(modelo) && ValidarAnio(anio) && ValidarKilometraje(kilometraje);
+        }
+        #endregion
 
+        #region Métodos privados
         /// <summary>
         /// Valida el formato de una dirección de correo electrónico.
         /// </summary>
@@ -70,14 +85,14 @@ namespace POE_proyecto.Utilidades
         }
 
         /// <summary>
-        /// Valida la dirección, asegurándose de que no esté vacía.
+        /// Valida si la cadena ingresada no está vacía.
         /// </summary>
         /// <returns>
-        /// <c>true</c> si la dirección es válida; de lo contrario, <c>false</c>.
+        /// <c>true</c> si la cadena no está vacía; de lo contrario, <c>false</c>.
         /// </returns>
-        public static bool ValidarDireccion(string direccion)
+        public static bool ValidarCadena(string cadena)
         {
-            return !string.IsNullOrEmpty(direccion);
+            return !string.IsNullOrEmpty(cadena);
         }
 
         /// <summary>
@@ -88,5 +103,41 @@ namespace POE_proyecto.Utilidades
         {
             return fechaNacimiento <= DateTime.Now;
         }
+
+        /// <summary>
+        /// Valida el formato de una placa de vehículo.
+        /// </summary>
+        /// <returns>
+        /// <c>true</c> si la placa es válida; de lo contrario, <c>false</c>.
+        /// </returns>
+        public static bool ValidarPlaca(string placa)
+        {
+            var regex = new Regex(@"^[A-Z]{3}-\d{4}$");
+            return regex.IsMatch(placa);
+        }
+
+        /// <summary>
+        /// Valida el formato de un año de vehículo.
+        /// </summary>
+        /// <returns>
+        /// <c>true</c> si el año es válido; de lo contrario, <c>false</c>.
+        /// </returns>
+        public static bool ValidarAnio(string anio)
+        {
+            var regex = new Regex(@"^\d{4}$");
+            return regex.IsMatch(anio);
+        }
+
+        /// <summary>
+        /// Valida el formato de un kilometraje de vehículo.
+        /// </summary> 
+        /// <returns>
+        /// <c>true</c> si el kilometraje es válido; de lo contrario, <c>false</c>.
+        /// </returns>
+        public static bool ValidarKilometraje(string kilometraje)
+        {
+            return BigInteger.TryParse(kilometraje, out _);
+        }
+        #endregion
     }
 }
