@@ -34,10 +34,10 @@ namespace POE_proyecto.Controlador
             string referencia
             )
         {
-            if(Validador.CamposCliente(cedula, correo, numeroTelefono, nombres, apellidos, direccion, fechaNacimiento)) {
-                int codigoCliente = AlmacenDeDatos.ClientesList.Count + 100;
+            if(Validador.ValidarCamposCliente(cedula, correo, numeroTelefono, nombres, apellidos, direccion, fechaNacimiento)) {
+                int codigoCliente = AlmacenDeDatos.ClientesList.Count + 1000;
                 Cliente nuevoCliente = new Cliente(codigoCliente, cedula, nombres, apellidos, direccion, correo, 
-                                                numeroTelefono, fechaNacimiento, referencia, DateTime.Now);
+                                                   numeroTelefono, fechaNacimiento, referencia, DateTime.Now);
                 AlmacenDeDatos.AgregarCliente(nuevoCliente);
                 return true;
             }
@@ -45,11 +45,11 @@ namespace POE_proyecto.Controlador
         }
 
         /// <summary>
-        /// Modifica un cliente existente en la lista de clientes
+        /// Modifica un cliente existente en la lista de clientes mediante codigo de cliente
         /// </summary>
         /// <param name="codigoCliente" Codigo del cliente a modificar></param>
         /// <returns>True si se modifica el cliente, False si no se encuentra el cliente</returns>
-        public bool ModificarCliente(
+        public bool ModificarClienteByCodigoCliente(
             int codigoCliente, string cedula, string nombres, string apellidos,
             string direccion, string correo, string numeroTelefono, DateTime fechaNacimiento,
             string referencia)
@@ -58,7 +58,7 @@ namespace POE_proyecto.Controlador
 
             if (clienteExistente != null)
             {
-                if (Validador.CamposCliente(cedula, correo, numeroTelefono, nombres, apellidos, direccion, fechaNacimiento))
+                if (Validador.ValidarCamposCliente(cedula, correo, numeroTelefono, nombres, apellidos, direccion, fechaNacimiento))
                 {
                     clienteExistente.Cedula = cedula;
                     clienteExistente.Nombres = nombres;

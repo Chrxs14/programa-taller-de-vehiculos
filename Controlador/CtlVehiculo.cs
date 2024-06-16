@@ -21,7 +21,7 @@ namespace POE_proyecto.Controlador
 
         public bool AgregarVehiculo(string placa, string marca, string modelo, string anio, string kilometraje)
         {
-            if (Validador.CamposVehiculo(placa, marca, modelo, anio, kilometraje))
+            if (Validador.ValidarCamposVehiculo(placa, marca, modelo, anio, kilometraje))
             {
                 Vehiculo nuevoVehiculo = new Vehiculo(placa, marca, modelo, anio, kilometraje);
                 AlmacenDeDatos.AgregarVehiculo(nuevoVehiculo);
@@ -36,7 +36,7 @@ namespace POE_proyecto.Controlador
 
             if (vehiculoExistente != null)
             {
-                if (Validador.CamposVehiculo(placa, marca, modelo, anio, kilometraje))
+                if (Validador.ValidarCamposVehiculo(placa, marca, modelo, anio, kilometraje))
                 {
                     vehiculoExistente.Marca = marca;
                     vehiculoExistente.Modelo = modelo;
