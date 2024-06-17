@@ -8,6 +8,7 @@
         public string? Modelo { get; set; }
         public string? Anio { get; set; }
         public string? Kilometraje { get; set; }
+        public bool Estado { get; set; }
         #endregion
 
         #region constructors
@@ -19,6 +20,7 @@
             Modelo = modelo;
             Anio = anio;
             Kilometraje = kilometraje;
+            Estado = true;
         }
         #endregion
     }
