@@ -81,11 +81,10 @@ namespace POE_proyecto.Controlador
         /// <summary>
         /// Modifica el estado de un mecanico existente en la lista de mecanicos mediante codigo de mecanico
         /// </summary>
-        /// <param name="estado"> TRUE - HABILITADO, FALSE - INHABILITADO</param>
         /// <returns>
         /// <c>true</c> si se modifica el estado del mecanico; de lo contrario, <c>false</c>.
         /// </returns>
-        public bool ModificarEstadoMecanicoByCedula(string cedula, bool estado)
+        public bool EliminarMecanicoByCedula(string cedula, bool estado)
         {
             Mecanico mecanico = AlmacenDeDatos.BuscarMecanico(cedula);
             if (mecanico != null)
