@@ -18,6 +18,7 @@ namespace POE_proyecto.Vista
     {
         private IconButton currentBtn;
         private Panel leftBorderBtn;
+        private Form currentChildForm;
 
 
         public FrmPrincipal()
@@ -27,6 +28,11 @@ namespace POE_proyecto.Vista
             leftBorderBtn.Size = new Size(10, 60);
 
             panelMenu.Controls.Add(leftBorderBtn);
+
+            this.Text = string.Empty;
+            //this.ControlBox = false;
+            this.DoubleBuffered = true;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
         //Structs
@@ -79,6 +85,23 @@ namespace POE_proyecto.Vista
             }
         }
 
+        private void OpenChildForm(Form childForm)
+        {
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+            this.currentChildForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelDesktop.Controls.Add(childForm);
+            panelDesktop.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+            titlePageLabel.Text = childForm.Text;
+        }
+
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
 
@@ -102,6 +125,7 @@ namespace POE_proyecto.Vista
         private void iconButton1_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new FormHome());
         }
 
         private void iconButton1_Click_1(object sender, EventArgs e)
@@ -112,6 +136,7 @@ namespace POE_proyecto.Vista
         private void iconButton1_Click_2(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new FormGestionClientes());
         }
 
         private void panel2_Paint_1(object sender, PaintEventArgs e)
@@ -122,20 +147,27 @@ namespace POE_proyecto.Vista
         private void vehicleManageBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new FormGestionVehiculos());
         }
 
         private void maintenanceManageBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new FormGestionMantenimientos());
         }
 
         private void reportBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new FormReporte());
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
             Reset();
         }
 
@@ -162,6 +194,11 @@ namespace POE_proyecto.Vista
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

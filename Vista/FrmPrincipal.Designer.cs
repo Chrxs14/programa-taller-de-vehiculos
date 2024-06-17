@@ -39,11 +39,14 @@
             panelTitleBar = new Panel();
             titlePageLabel = new Label();
             iconChildForm = new FontAwesome.Sharp.IconPictureBox();
+            panelDesktop = new Panel();
+            label1 = new Label();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconChildForm).BeginInit();
+            panelDesktop.SuspendLayout();
             SuspendLayout();
             // 
             // panelMenu
@@ -58,7 +61,7 @@
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 0);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(220, 561);
+            panelMenu.Size = new Size(220, 658);
             panelMenu.TabIndex = 0;
             panelMenu.Paint += panel1_Paint;
             // 
@@ -189,7 +192,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.image;
+            pictureBox1.Image = Properties.Resources.image__1_;
             pictureBox1.Location = new Point(31, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(160, 140);
@@ -206,7 +209,7 @@
             panelTitleBar.Dock = DockStyle.Top;
             panelTitleBar.Location = new Point(220, 0);
             panelTitleBar.Name = "panelTitleBar";
-            panelTitleBar.Size = new Size(664, 75);
+            panelTitleBar.Size = new Size(864, 75);
             panelTitleBar.TabIndex = 1;
             panelTitleBar.Paint += panelTitleBar_Paint;
             panelTitleBar.MouseDown += panelTitleBar_MouseDown;
@@ -218,13 +221,13 @@
             titlePageLabel.ForeColor = Color.White;
             titlePageLabel.Location = new Point(60, 29);
             titlePageLabel.Name = "titlePageLabel";
-            titlePageLabel.Size = new Size(56, 21);
+            titlePageLabel.Size = new Size(102, 21);
             titlePageLabel.TabIndex = 1;
-            titlePageLabel.Text = "Home";
+            titlePageLabel.Text = "Bienvenido!";
             // 
             // iconChildForm
             // 
-            iconChildForm.BackColor = Color.FromArgb(36, 44, 69);
+            iconChildForm.BackColor = Color.FromArgb(24, 29, 46);
             iconChildForm.IconChar = FontAwesome.Sharp.IconChar.HouseChimney;
             iconChildForm.IconColor = Color.White;
             iconChildForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -234,16 +237,38 @@
             iconChildForm.TabIndex = 0;
             iconChildForm.TabStop = false;
             // 
+            // panelDesktop
+            // 
+            panelDesktop.BackColor = Color.FromArgb(20, 37, 78);
+            panelDesktop.Controls.Add(label1);
+            panelDesktop.Dock = DockStyle.Fill;
+            panelDesktop.Location = new Point(220, 75);
+            panelDesktop.Name = "panelDesktop";
+            panelDesktop.Size = new Size(864, 583);
+            panelDesktop.TabIndex = 2;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 40F);
+            label1.Location = new Point(293, 233);
+            label1.Name = "label1";
+            label1.Size = new Size(295, 72);
+            label1.TabIndex = 0;
+            label1.Text = "Bienvenido";
+            label1.Click += label1_Click;
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(884, 561);
+            ClientSize = new Size(1084, 658);
+            Controls.Add(panelDesktop);
             Controls.Add(panelTitleBar);
             Controls.Add(panelMenu);
             Name = "FrmPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FrmPrincipal";
+            Text = "Servicios de Mantenimiento";
             Load += FrmPrincipal_Load;
             panelMenu.ResumeLayout(false);
             panelLogo.ResumeLayout(false);
@@ -251,6 +276,8 @@
             panelTitleBar.ResumeLayout(false);
             panelTitleBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)iconChildForm).EndInit();
+            panelDesktop.ResumeLayout(false);
+            panelDesktop.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -267,5 +294,7 @@
         private Panel panelTitleBar;
         private FontAwesome.Sharp.IconPictureBox iconChildForm;
         private Label titlePageLabel;
+        private Panel panelDesktop;
+        private Label label1;
     }
 }
