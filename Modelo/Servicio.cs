@@ -2,13 +2,11 @@
 {
     public class Servicio
     {
-        // Tengo la IDEA de agregar el encargado de realizar el servicio y asi le damos uso a la clase Empleado
         #region fields
         public int Codigo { get; set; }
         public string? Nombre { get; set; }
         public int Precio { get; set; }
         public string? Descripcion { get; set; }
-        // public Empleado Encargado { get; set; }
 
         #endregion
 
