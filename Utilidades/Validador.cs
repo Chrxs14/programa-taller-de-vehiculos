@@ -57,6 +57,30 @@ namespace POE_proyecto.Utilidades
         {
             return ValidarFechaNacimiento(fechaMantenimiento) && ValidarCadena(diagnostico) && ValidarCadena(trabajosRealizados);
         }
+
+        /// <summary>
+        /// Valida el formato de una cédula (número de identificación).
+        /// </summary>
+        /// <returns>
+        /// <c>true</c> si el número de identificación es válido; de lo contrario, <c>false</c>.
+        /// </returns>
+        public static bool ValidarCedula(string cedula)
+        {
+            var regex = new Regex(@"^\d{10}$");
+            return regex.IsMatch(cedula);
+        }
+
+        /// <summary>
+        /// Valida el formato de un código de mantenimiento.
+        /// </summary>
+        /// <returns>
+        /// <c>true</c> si el código de mantenimiento es válido; de lo contrario, <c>false</c>.
+        /// </returns>
+        public static bool ValidarCodigoMantenimiento(string codigoMantenimiento)
+        {
+            var regex = new Regex(@"^M\d+$");
+            return regex.IsMatch(codigoMantenimiento);
+        }
         #endregion
 
         #region Métodos privados
@@ -70,18 +94,6 @@ namespace POE_proyecto.Utilidades
         {
             var regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
             return regex.IsMatch(correo);
-        }
-
-        /// <summary>
-        /// Valida el formato de una cédula (número de identificación).
-        /// </summary>
-        /// <returns>
-        /// <c>true</c> si el número de identificación es válido; de lo contrario, <c>false</c>.
-        /// </returns>
-        private static bool ValidarCedula(string cedula)
-        {
-            var regex = new Regex(@"^\d{10}$");
-            return regex.IsMatch(cedula);
         }
 
         /// <summary>

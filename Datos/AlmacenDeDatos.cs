@@ -33,5 +33,77 @@ namespace POE_proyecto.Datos
         {
             Vehiculos.Add(vehiculo);
         }
+
+        public static Cliente BuscarCliente(string cedula)
+        {
+            return Clientes.FirstOrDefault(c => c.Cedula == cedula);
+        }
+
+        public static Mecanico BuscarMecanico(string cedula)
+        {
+            return Mecanicos.FirstOrDefault(m => m.Cedula == cedula);
+        }
+
+        public static Vehiculo BuscarVehiculo(string placa)
+        {
+            return Vehiculos.FirstOrDefault(v => v.Placa == placa);
+        }
+
+        public static Mantenimiento BuscarMantenimiento(string codigo)
+        {
+            return Mantenimientos.FirstOrDefault(m => m.Codigo == codigo);
+        }
+
+        public static void ModificarCliente(string cedula, Cliente cliente)
+        {
+            int index = Clientes.FindIndex(c => c.Cedula == cedula);
+            if (index != -1)
+            {
+                Clientes[index] = cliente;
+            }
+            else
+            {
+                throw new KeyNotFoundException($"No se encontró un cliente con la cédula {cedula}");
+            }
+        }
+
+        public static void ModificarMecanico(string cedula, Mecanico mecanico)
+        {
+            int index = Mecanicos.FindIndex(m => m.Cedula == cedula);
+            if (index != -1)
+            {
+                Mecanicos[index] = mecanico;
+            }
+            else
+            {
+                throw new KeyNotFoundException($"No se encontró un mecánico con la cédula {cedula}");
+            }
+        }
+
+        public static void ModificarVehiculo(string placa, Vehiculo vehiculo)
+        {
+            int index = Vehiculos.FindIndex(v => v.Placa == placa);
+            if (index != -1)
+            {
+                Vehiculos[index] = vehiculo;
+            }
+            else
+            {
+                throw new KeyNotFoundException($"No se encontró un vehículo con la placa {placa}");
+            }
+        }
+
+        public static void ModificarMantenimiento(string codigo, Mantenimiento mantenimiento)
+        {
+            int index = Mantenimientos.FindIndex(m => m.Codigo == codigo);
+            if (index != -1)
+            {
+                Mantenimientos[index] = mantenimiento;
+            }
+            else
+            {
+                throw new KeyNotFoundException($"No se encontró un mantenimiento con el código {codigo}");
+            }
+        }
     }
 }

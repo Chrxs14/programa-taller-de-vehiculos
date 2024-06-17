@@ -15,9 +15,26 @@ namespace POE_proyecto.Controlador
         /// Obtiene la lista de mecanicos
         /// </summary> 
         /// <returns>Lista de mecanicos</returns>
-        public IReadOnlyList<Mecanico> ObtenerMecanicos()
+        public List<Mecanico> ObtenerMecanicos()
         {
-            return AlmacenDeDatos.MecanicosList;
+            return AlmacenDeDatos.MecanicosList
+                                 .Where(m => m.Estado)
+                                 .ToList();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>
+        /// <c>true</c> si se encuentra el mecanico; de lo contrario, <c>false</c> si el mecanico no fue encontrado.
+        /// </returns>
+        public Mecanico ObtenerMecanicoByCedula(string cedula)
+        {
+            if (Validador.ValidarCedula(cedula))
+            {
+                return AlmacenDeDatos.BuscarMecanico(cedula);
+            }
+            return null;
         }
 
         /// <summary>
@@ -32,10 +49,8 @@ namespace POE_proyecto.Controlador
         {
             if (Validador.ValidarCamposMecanico(cedula, nombres, apellidos, direccion, correo, numeroTelefono, fechaNacimiento, especialidad, nivelDeExperiencia))
             {
-                int codigoMecanico = AlmacenDeDatos.MecanicosList.Count + 100;
-
-                Mecanico nuevoMecanico = new Mecanico(cedula, nombres, apellidos, direccion, correo, numeroTelefono, fechaNacimiento, 
-                                                      codigoMecanico, DateTime.Now, especialidad, nivelDeExperiencia);
+                Mecanico nuevoMecanico = new(cedula, nombres, apellidos, direccion, correo, numeroTelefono, fechaNacimiento, 
+                                             DateTime.Now, especialidad, nivelDeExperiencia);
                 AlmacenDeDatos.AgregarMecanico(nuevoMecanico);
                 return true;
             }
@@ -45,27 +60,18 @@ namespace POE_proyecto.Controlador
         /// <summary>
         /// Modifica un mecanico existente en la lista de mecanicos mediante codigo de mecanico
         /// </summary>
-        /// <param name="codigoMecanico" Codigo del mecanico a modificar></param>
         /// <returns>
         /// <c>true</c> si se modifica el mecanico; de lo contrario, <c>false</c>.
         /// </returns>
-        public bool ModificarMecanicoByCodigoMecanico(int codigoMecanico, string cedula, string nombres, string apellidos, string direccion, string correo, string numeroTelefono
+        public bool ModificarMecanicoByCedula(string cedula, string nombres, string apellidos, string direccion, string correo, string numeroTelefono
                                                       , DateTime fechaNacimiento, string especialidad, string nivelDeExperiencia)
         {
-            Mecanico mecanicoExistente = AlmacenDeDatos.MecanicosList.FirstOrDefault(m => m.CodigoEmpleado == codigoMecanico);
-            if (mecanicoExistente != null)
+            if (AlmacenDeDatos.BuscarMecanico(cedula) != null)
             {
                 if (Validador.ValidarCamposMecanico(cedula, nombres, apellidos, direccion, correo, numeroTelefono, fechaNacimiento,  especialidad, nivelDeExperiencia))
                 {
-                    mecanicoExistente.Cedula = cedula;
-                    mecanicoExistente.Nombres = nombres;
-                    mecanicoExistente.Apellidos = apellidos;
-                    mecanicoExistente.Direccion = direccion;
-                    mecanicoExistente.Correo = correo;
-                    mecanicoExistente.NumeroTelefono = numeroTelefono;
-                    mecanicoExistente.FechaNacimiento = fechaNacimiento;
-                    mecanicoExistente.Especialidad = especialidad;
-                    mecanicoExistente.NivelDeExperiencia = nivelDeExperiencia;
+                    Mecanico mecanicoEditado = new(cedula, nombres, apellidos, direccion, correo, numeroTelefono, fechaNacimiento, DateTime.Now, especialidad, nivelDeExperiencia);
+                    AlmacenDeDatos.ModificarMecanico(cedula, mecanicoEditado);
                     return true;
                 }
             }
@@ -75,17 +81,16 @@ namespace POE_proyecto.Controlador
         /// <summary>
         /// Modifica el estado de un mecanico existente en la lista de mecanicos mediante codigo de mecanico
         /// </summary>
-        /// <param name="codigoMecanico"></param>
         /// <param name="estado"> TRUE - HABILITADO, FALSE - INHABILITADO</param>
         /// <returns>
         /// <c>true</c> si se modifica el estado del mecanico; de lo contrario, <c>false</c>.
         /// </returns>
-        public bool ModificarEstadoMecanicoByCodigoMecanico(int codigoMecanico, bool estado)
+        public bool ModificarEstadoMecanicoByCedula(string cedula, bool estado)
         {
-            Mecanico mecanicoExistente = AlmacenDeDatos.MecanicosList.FirstOrDefault(m => m.CodigoEmpleado == codigoMecanico);
-            if (mecanicoExistente != null)
+            Mecanico mecanico = AlmacenDeDatos.BuscarMecanico(cedula);
+            if (mecanico != null)
             {
-                mecanicoExistente.EstaActivo = estado;
+                mecanico.Estado = estado;
                 return true;
             }
             return false;
