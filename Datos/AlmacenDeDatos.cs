@@ -9,7 +9,6 @@ namespace POE_proyecto.Datos
         private static readonly List<Mecanico> Mecanicos = new();
         private static readonly List<Mantenimiento> Mantenimientos = new();
         private static readonly List<Vehiculo> Vehiculos = new();
-
         public static IReadOnlyList<Cliente> ClientesList => Clientes.AsReadOnly();
         public static IReadOnlyList<Mecanico> MecanicosList => Mecanicos.AsReadOnly();
         public static IReadOnlyList<Mantenimiento> MantenimientosList => Mantenimientos.AsReadOnly();
