@@ -37,21 +37,24 @@
             // dataGridViewClientes
             // 
             dataGridViewClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewClientes.Location = new Point(301, 198);
+            dataGridViewClientes.Location = new Point(23, 64);
             dataGridViewClientes.Name = "dataGridViewClientes";
-            dataGridViewClientes.Size = new Size(240, 150);
+            dataGridViewClientes.ShowEditingIcon = false;
+            dataGridViewClientes.Size = new Size(750, 354);
             dataGridViewClientes.TabIndex = 0;
+            dataGridViewClientes.CellContentClick += dataGridViewClientes_CellContentClick;
             // 
             // textBoxBuscarCliente
             // 
-            textBoxBuscarCliente.Location = new Point(275, 122);
+            textBoxBuscarCliente.Location = new Point(23, 22);
             textBoxBuscarCliente.Name = "textBoxBuscarCliente";
-            textBoxBuscarCliente.Size = new Size(100, 23);
+            textBoxBuscarCliente.Size = new Size(142, 23);
             textBoxBuscarCliente.TabIndex = 1;
+            textBoxBuscarCliente.TextChanged += textBoxBuscarCliente_TextChanged_1;
             // 
             // buttonBuscarCliente
             // 
-            buttonBuscarCliente.Location = new Point(432, 124);
+            buttonBuscarCliente.Location = new Point(185, 22);
             buttonBuscarCliente.Name = "buttonBuscarCliente";
             buttonBuscarCliente.Size = new Size(75, 23);
             buttonBuscarCliente.TabIndex = 2;
