@@ -30,7 +30,7 @@ namespace POE_proyecto.Controlador
         /// <returns>
         /// <c>true</c> si se encuentra el mantenimiento; de lo contrario, <c>false</c> si el mantenimiento no fue encontrado.
         /// </returns>
-        public Mantenimiento ObtenerMantenimientoByCodigoMantenimiento(string codigoMantenimiento)
+        public Mantenimiento ObtenerMantenimientoByCodigo(string codigoMantenimiento)
         {
             if (Validador.ValidarCodigoMantenimiento(codigoMantenimiento))
             {
@@ -67,7 +67,7 @@ namespace POE_proyecto.Controlador
         /// <returns>
         /// <c>true</c> si se modifica el mantenimiento; de lo contrario, <c>false</c>.
         /// </returns>
-        public bool ModificarMantenimientoByCodigoMantenimiento
+        public bool ModificarMantenimientoByCodigo
             (
                 string codigoMantenimiento, Cliente cliente, Mecanico mecanico, DateTime fechaMantenimiento, Vehiculo vehiculo,
                 string diagnostico, string trabajosRealizados, bool esCorrectivo, List<Servicio> listaServiciosRealizados
@@ -91,7 +91,7 @@ namespace POE_proyecto.Controlador
         /// <returns>
         /// <c>true</c> si se elimina el mantenimiento; de lo contrario, <c>false</c>.
         /// </returns>
-        public bool EliminarMantenimientoByCodigoMantenimiento(string codigoMantenimiento)
+        public bool EliminarMantenimientoByCodigo(string codigoMantenimiento)
         {
             Mantenimiento mantenimiento = AlmacenDeDatos.BuscarMantenimiento(codigoMantenimiento);
 
