@@ -12,6 +12,7 @@
         public string TrabajosRealizados { get; set; }
         public bool EsCorrectivo { get; set; }
         public List<Servicio> ListaServiciosRealizados { get; set; }
+        public bool Estado { get; set; }
         #endregion
 
         #region constructors
@@ -26,6 +27,7 @@
             TrabajosRealizados = trabajosRealizados;
             EsCorrectivo = esCorrectivo;
             ListaServiciosRealizados = listaServiciosRealizados ?? new List<Servicio>();
+            Estado = true;
         }
         #endregion
     }

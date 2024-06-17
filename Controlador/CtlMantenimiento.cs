@@ -17,9 +17,26 @@ namespace POE_proyecto.Controlador
         /// <returns>
         /// Lista de Mantenimientos
         /// </returns>
-        public IReadOnlyList<Mantenimiento> ObtenerMantenimientos()
+        public List<Mantenimiento> ObtenerMantenimientos()
         {
-            return AlmacenDeDatos.MantenimientosList;
+            return AlmacenDeDatos.MantenimientosList
+                                 .Where(m => m.Estado)
+                                 .ToList();
+        }
+
+        /// <summary>
+        /// Obtener un mantenimiento mediante su codigo de mantenimiento
+        /// </summary>
+        /// <returns>
+        /// <c>true</c> si se encuentra el mantenimiento; de lo contrario, <c>false</c> si el mantenimiento no fue encontrado.
+        /// </returns>
+        public Mantenimiento ObtenerMantenimientoByCodigoMantenimiento(string codigoMantenimiento)
+        {
+            if (Validador.ValidarCodigoMantenimiento(codigoMantenimiento))
+            {
+                return AlmacenDeDatos.BuscarMantenimiento(codigoMantenimiento);
+            }
+            return null;
         }
 
         /// <summary>
@@ -56,22 +73,32 @@ namespace POE_proyecto.Controlador
                 string diagnostico, string trabajosRealizados, bool esCorrectivo, List<Servicio> listaServiciosRealizados
             )
         {
-            Mantenimiento mantenimientoExistente = AlmacenDeDatos.MantenimientosList.FirstOrDefault(m => m.Codigo == codigoMantenimiento);
-
-            if (mantenimientoExistente != null)
+            if (AlmacenDeDatos.BuscarMantenimiento != null)
             {
                 if (Validador.ValidarCamposMantenimiento(fechaMantenimiento, diagnostico, trabajosRealizados))
                 {
-                    mantenimientoExistente.Cliente = cliente;
-                    mantenimientoExistente.Mecanico = mecanico;
-                    mantenimientoExistente.FechaMantenimiento = fechaMantenimiento;
-                    mantenimientoExistente.Vehiculo = vehiculo;
-                    mantenimientoExistente.Diagnostico = diagnostico;
-                    mantenimientoExistente.TrabajosRealizados = trabajosRealizados;
-                    mantenimientoExistente.EsCorrectivo = esCorrectivo;
-                    mantenimientoExistente.ListaServiciosRealizados = listaServiciosRealizados;
+                    Mantenimiento mantenimientoEditado = new Mantenimiento(codigoMantenimiento, cliente, mecanico, fechaMantenimiento, vehiculo, diagnostico, trabajosRealizados, esCorrectivo, listaServiciosRealizados);
+                    AlmacenDeDatos.ModificarMantenimiento(codigoMantenimiento, mantenimientoEditado);
                     return true;
                 }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Eliminado logico: Modifica estado de un mantenimiento existente en la lista de mantenimientos mediante codigo de mantenimiento
+        /// </summary>
+        /// <returns>
+        /// <c>true</c> si se elimina el mantenimiento; de lo contrario, <c>false</c>.
+        /// </returns>
+        public bool EliminarMantenimientoByCodigoMantenimiento(string codigoMantenimiento)
+        {
+            Mantenimiento mantenimiento = AlmacenDeDatos.BuscarMantenimiento(codigoMantenimiento);
+
+            if (mantenimiento != null)
+            {
+                mantenimiento.Estado = false;
+                return true;
             }
             return false;
         }

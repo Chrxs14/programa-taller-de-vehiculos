@@ -2,10 +2,6 @@
 {
     public class Persona
     {
-        // Aqui me indicaba usar required o ? para poder decir si el campo sera requerido o puede ser nulo, pero se resolvio colocando un constructor por defecto con
-        // campos en nulo (estara bien?, estara mal?, sabe dios)
-        // Update: Al final lo cambie por que me parece mejor jaja
-        // Update: Esto solo lo solicita cuando el campo es string?, con los int no me pide hacerlo
         #region fields
         public string? Cedula { get; set; }
         public string? Nombres { get; set; }
@@ -14,6 +10,7 @@
         public string? Correo { get; set; }
         public string? NumeroTelefono { get; set; }
         public DateTime FechaNacimiento { get; set; }
+        public bool Estado { get; set; }
         #endregion
 
         #region constructors
@@ -27,6 +24,7 @@
             Correo = correo;
             NumeroTelefono = numeroTelefono;
             FechaNacimiento = fechaNacimiento;
+            Estado = true;
         }
         #endregion
     }

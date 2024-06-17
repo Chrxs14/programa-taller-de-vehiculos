@@ -15,12 +15,28 @@ namespace POE_proyecto.Controlador
 
         #region Methods
         /// <summary>
-        /// Obtiene la lista de clientes
+        /// Obtiene la lista de clientes con estado activo
         /// </summary>
         /// <returns>Lista de clientes</returns>
-        public IReadOnlyList<Cliente> ObtenerClientes()
+        public List<Cliente> ObtenerClientes()
         {
-            return AlmacenDeDatos.ClientesList;
+            return AlmacenDeDatos.ClientesList
+                                 .Where(c => c.Estado)
+                                 .ToList();
+        }
+
+        /// <summary>
+        /// Obtener un cliente mediante su cedula
+        /// </summary>
+        /// <returns>
+        /// <c>Cliente</c> si se encuentra el cliente; de lo contrario, <c>null</c> si el cliente no fue encontrado.
+        /// </returns>
+        public Cliente ObtenerClienteByCedula(string cedula)
+        {
+            if (Validador.ValidarCedula(cedula)){
+                return AlmacenDeDatos.BuscarCliente(cedula);
+            }
+            return null;
         }
 
         /// <summary>
@@ -35,9 +51,8 @@ namespace POE_proyecto.Controlador
             )
         {
             if(Validador.ValidarCamposCliente(cedula, correo, numeroTelefono, nombres, apellidos, direccion, fechaNacimiento)) {
-                int codigoCliente = AlmacenDeDatos.ClientesList.Count + 1000;
-                Cliente nuevoCliente = new Cliente(codigoCliente, cedula, nombres, apellidos, direccion, correo, 
-                                                   numeroTelefono, fechaNacimiento, referencia, DateTime.Now);
+                Cliente nuevoCliente = new(cedula, nombres, apellidos, direccion, correo, numeroTelefono, 
+                                            fechaNacimiento, referencia, DateTime.Now);
                 AlmacenDeDatos.AgregarCliente(nuevoCliente);
                 return true;
             }
@@ -47,29 +62,39 @@ namespace POE_proyecto.Controlador
         /// <summary>
         /// Modifica un cliente existente en la lista de clientes mediante codigo de cliente
         /// </summary>
-        /// <param name="codigoCliente" Codigo del cliente a modificar></param>
+        /// <param name="cedula" Cedula del cliente a modificar></param>
         /// <returns>True si se modifica el cliente, False si no se encuentra el cliente</returns>
-        public bool ModificarClienteByCodigoCliente(
-            int codigoCliente, string cedula, string nombres, string apellidos,
+        public bool ModificarClienteByCedula(
+            string cedula, string nombres, string apellidos,
             string direccion, string correo, string numeroTelefono, DateTime fechaNacimiento,
             string referencia)
         {
-            Cliente clienteExistente = AlmacenDeDatos.ClientesList.FirstOrDefault(c => c.CodigoCliente == codigoCliente);
-
-            if (clienteExistente != null)
+            if (AlmacenDeDatos.BuscarCliente(cedula) != null)
             {
                 if (Validador.ValidarCamposCliente(cedula, correo, numeroTelefono, nombres, apellidos, direccion, fechaNacimiento))
                 {
-                    clienteExistente.Cedula = cedula;
-                    clienteExistente.Nombres = nombres;
-                    clienteExistente.Apellidos = apellidos;
-                    clienteExistente.Direccion = direccion;
-                    clienteExistente.Correo = correo;
-                    clienteExistente.NumeroTelefono = numeroTelefono;
-                    clienteExistente.FechaNacimiento = fechaNacimiento;
-                    clienteExistente.Referencia = referencia;
+                    Cliente clienteEditado = new Cliente(cedula, nombres, apellidos, direccion, correo, numeroTelefono, fechaNacimiento, referencia, DateTime.Now);
+                    AlmacenDeDatos.ModificarCliente(cedula, clienteEditado);
                     return true;
                 }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Eliminado logico: Modifica estado de un cliente existente en la lista de clientes mediante cedula
+        /// </summary>
+        /// <returns>
+        /// <c>true</c> si se elimina el cliente; de lo contrario, <c>false</c>.
+        /// </returns>
+        public bool EliminarClienteByCedula(string cedula)
+        {
+            Cliente cliente = AlmacenDeDatos.BuscarCliente(cedula);
+
+            if (cliente != null)
+            {
+                cliente.Estado = false;
+                return true;
             }
             return false;
         }
