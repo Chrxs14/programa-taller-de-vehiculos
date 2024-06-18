@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dateTimePicker2 = new DateTimePicker();
             btnEnviarDatosVehiculo = new Button();
             label26 = new Label();
             textBox22 = new TextBox();
@@ -54,19 +53,11 @@
             dataGridViewClientes = new DataGridView();
             textBox19 = new TextBox();
             panel4 = new Panel();
-            dateTimePicker1 = new DateTimePicker();
             dateTimePicker3 = new DateTimePicker();
+            dateTimePicker1 = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).BeginInit();
             panel4.SuspendLayout();
             SuspendLayout();
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Anchor = AnchorStyles.None;
-            dateTimePicker2.Location = new Point(315, 587);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(245, 23);
-            dateTimePicker2.TabIndex = 23;
             // 
             // btnEnviarDatosVehiculo
             // 
@@ -314,7 +305,6 @@
             // 
             panel4.BackColor = Color.FromArgb(25, 30, 70);
             panel4.Controls.Add(dateTimePicker3);
-            panel4.Controls.Add(dateTimePicker2);
             panel4.Controls.Add(btnEnviarDatosVehiculo);
             panel4.Controls.Add(dateTimePicker1);
             panel4.Controls.Add(label26);
@@ -336,31 +326,30 @@
             panel4.Dock = DockStyle.Right;
             panel4.Location = new Point(679, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(480, 553);
+            panel4.Size = new Size(480, 556);
             panel4.TabIndex = 25;
+            // 
+            // dateTimePicker3
+            // 
+            dateTimePicker3.Location = new Point(175, 372);
+            dateTimePicker3.Name = "dateTimePicker3";
+            dateTimePicker3.Size = new Size(245, 23);
+            dateTimePicker3.TabIndex = 24;
             // 
             // dateTimePicker1
             // 
             dateTimePicker1.Anchor = AnchorStyles.None;
-            dateTimePicker1.Location = new Point(454, 813);
+            dateTimePicker1.Location = new Point(454, 815);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(245, 23);
             dateTimePicker1.TabIndex = 22;
-            // 
-            // dateTimePicker3
-            // 
-            dateTimePicker3.Anchor = AnchorStyles.None;
-            dateTimePicker3.Location = new Point(175, 370);
-            dateTimePicker3.Name = "dateTimePicker3";
-            dateTimePicker3.Size = new Size(245, 23);
-            dateTimePicker3.TabIndex = 24;
             // 
             // FormGestionVehiculos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(20, 37, 78);
-            ClientSize = new Size(1159, 553);
+            ClientSize = new Size(1159, 556);
             Controls.Add(btnCrearVehiculo);
             Controls.Add(btnEditarVehiculo);
             Controls.Add(lblPlacaVehiculo);
@@ -380,8 +369,6 @@
         }
 
         #endregion
-
-        private DateTimePicker dateTimePicker2;
         private Button btnEnviarDatosVehiculo;
         private Label label26;
         private TextBox textBox22;
