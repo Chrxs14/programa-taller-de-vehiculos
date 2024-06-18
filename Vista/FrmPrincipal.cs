@@ -11,6 +11,7 @@ using System.Windows.Media;
 using FontAwesome.Sharp;
 using Color = System.Drawing.Color;
 using System.Runtime.InteropServices;
+using POE_proyecto.Controlador;
 
 namespace POE_proyecto.Vista
 {
@@ -19,10 +20,11 @@ namespace POE_proyecto.Vista
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
+        private CtlPrincipal CtlPrincipal;
 
-
-        public FrmPrincipal()
+        public FrmPrincipal(CtlPrincipal ctlPrincipal)
         {
+            CtlPrincipal = ctlPrincipal;
             InitializeComponent();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(10, 60);

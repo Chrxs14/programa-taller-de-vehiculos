@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POE_proyecto.Controlador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,10 @@ namespace POE_proyecto.Vista
 {
     public partial class FormGestionVehiculos : Form
     {
-        public FormGestionVehiculos()
+        private CtlPrincipal CtlPrincipal;
+        public FormGestionVehiculos(CtlPrincipal ctlPrincipal)
         {
+            CtlPrincipal = ctlPrincipal;
             InitializeComponent();
         }
 

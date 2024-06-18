@@ -17,13 +17,13 @@ namespace POE_proyecto.Controlador
         #region constructors
         public CtlPrincipal()
         {
-            agregarDatosQuemados();
             ctlCliente = new();
             ctlMecanico = new();
             ctlMantenimiento = new();
             ctlVehiculo = new();
             ctlServicio = new();
             ctlEmpleado = new();
+            agregarDatosQuemados();
         }
         #endregion
 
@@ -46,11 +46,11 @@ namespace POE_proyecto.Controlador
             ctlServicio.AgregarServicio("Pulido de faros", 20.0f, "Pulido y restauración de faros delanteros");
 
             // Clientes
-            ctlCliente.AgregarCliente("1010101010", "Juan", "Perez", "Av. Principal 123", "juan@example.com", "555-1234", new DateTime(1985, 3, 12), "Referencia Cliente 1");
-            ctlCliente.AgregarCliente("2020202020", "María", "Gómez", "Calle Secundaria 456", "maria@example.com", "555-5678", new DateTime(1990, 7, 21), "Referencia Cliente 2");
-            ctlCliente.AgregarCliente("3030303030", "Pedro", "Ramírez", "Calle Central 789", "pedro@example.com", "555-4567", new DateTime(1983, 9, 15), "Referencia Cliente 3");
-            ctlCliente.AgregarCliente("4040404040", "Ana", "Sánchez", "Av. Libertad 567", "ana@example.com", "555-7890", new DateTime(1987, 5, 8), "Referencia Cliente 4");
-            ctlCliente.AgregarCliente("5050505050", "Luisa", "Martínez", "Av. Norte 890", "luisa@example.com", "555-2345", new DateTime(1984, 11, 20), "Referencia Cliente 5");
+            ctlCliente.AgregarCliente("1010101010", "Juan", "Perez", "Av. Principal 123", "juan@example.com", "0990104149", new DateTime(1985, 3, 12), "Referencia Cliente 1");
+            ctlCliente.AgregarCliente("2020202020", "María", "Gómez", "Calle Secundaria 456", "maria@example.com", "0990104149", new DateTime(1990, 7, 21), "Referencia Cliente 2");
+            ctlCliente.AgregarCliente("3030303030", "Pedro", "Ramírez", "Calle Central 789", "pedro@example.com", "0990104149", new DateTime(1983, 9, 15), "Referencia Cliente 3");
+            ctlCliente.AgregarCliente("4040404040", "Ana", "Sánchez", "Av. Libertad 567", "ana@example.com", "0990104149", new DateTime(1987, 5, 8), "Referencia Cliente 4");
+            ctlCliente.AgregarCliente("5050505050", "Luisa", "Martínez", "Av. Norte 890", "luisa@example.com", "0990104149", new DateTime(1984, 11, 20), "Referencia Cliente 5");
 
             // Vehiculos
             ctlVehiculo.AgregarVehiculo("ABC123", "Toyota", "Corolla", "2020", "55000 km");
