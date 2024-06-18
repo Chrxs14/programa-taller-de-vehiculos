@@ -138,7 +138,7 @@ namespace POE_proyecto.Vista
         private void iconButton1_Click_2(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new FormGestionClientes());
+            OpenChildForm(new FormGestionClientes(CtlPrincipal));
         }
 
         private void panel2_Paint_1(object sender, PaintEventArgs e)
@@ -149,19 +149,19 @@ namespace POE_proyecto.Vista
         private void vehicleManageBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new FormGestionVehiculos());
+            OpenChildForm(new FormGestionVehiculos(CtlPrincipal));
         }
 
         private void maintenanceManageBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new FormGestionMantenimientos());
+            OpenChildForm(new FormGestionMantenimientos(CtlPrincipal));
         }
 
         private void reportBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new FormReporte());
+            OpenChildForm(new FormReporte(CtlPrincipal));
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

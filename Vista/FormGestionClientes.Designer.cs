@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             dataGridViewClientes = new DataGridView();
-            textBoxBuscarCliente = new TextBox();
+            txtSearchByCedula = new TextBox();
             buttonBuscarCliente = new Button();
             lblClientesTitle = new Label();
             label1 = new Label();
@@ -37,24 +37,24 @@
             panel2 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
-            btnEnviarDatosCliente = new Button();
-            dateTimePicker1 = new DateTimePicker();
+            txtNombres = new TextBox();
+            btnCrearCliente = new Button();
+            dtpFechaNacimiento = new DateTimePicker();
             label26 = new Label();
-            textBox22 = new TextBox();
+            txtReferencia = new TextBox();
             label25 = new Label();
             label24 = new Label();
-            textBox20 = new TextBox();
+            txtTelefono = new TextBox();
             label18 = new Label();
-            textBox15 = new TextBox();
+            txtCorreo = new TextBox();
             label19 = new Label();
-            textBox16 = new TextBox();
+            txtDireccion = new TextBox();
             label20 = new Label();
-            textBox17 = new TextBox();
+            txtApellidos = new TextBox();
             label21 = new Label();
-            textBox18 = new TextBox();
+            txtCedula = new TextBox();
             label22 = new Label();
             label23 = new Label();
-            textBox19 = new TextBox();
             label12 = new Label();
             textBox10 = new TextBox();
             label13 = new Label();
@@ -86,8 +86,6 @@
             label2 = new Label();
             lblClienteInfo = new Label();
             textBox1 = new TextBox();
-            btnEditarCliente = new Button();
-            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -97,21 +95,23 @@
             // 
             // dataGridViewClientes
             // 
+            dataGridViewClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewClientes.BackgroundColor = Color.White;
             dataGridViewClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewClientes.Location = new Point(23, 136);
             dataGridViewClientes.Name = "dataGridViewClientes";
             dataGridViewClientes.ShowEditingIcon = false;
             dataGridViewClientes.Size = new Size(626, 354);
-            dataGridViewClientes.TabIndex = 0;
-            dataGridViewClientes.CellContentClick += dataGridViewClientes_CellContentClick;
+            dataGridViewClientes.TabIndex = 100;
+            dataGridViewClientes.CellClick += dataGridViewClientes_CellClick;
             // 
-            // textBoxBuscarCliente
+            // txtSearchByCedula
             // 
-            textBoxBuscarCliente.Location = new Point(110, 95);
-            textBoxBuscarCliente.Name = "textBoxBuscarCliente";
-            textBoxBuscarCliente.Size = new Size(142, 23);
-            textBoxBuscarCliente.TabIndex = 1;
+            txtSearchByCedula.Location = new Point(110, 95);
+            txtSearchByCedula.Name = "txtSearchByCedula";
+            txtSearchByCedula.Size = new Size(142, 23);
+            txtSearchByCedula.TabIndex = 1;
+            txtSearchByCedula.KeyDown += txtSearchByCedula_KeyDown;
             // 
             // buttonBuscarCliente
             // 
@@ -212,45 +212,54 @@
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(25, 30, 70);
-            panel4.Controls.Add(btnEnviarDatosCliente);
-            panel4.Controls.Add(dateTimePicker1);
+            panel4.Controls.Add(txtNombres);
+            panel4.Controls.Add(btnCrearCliente);
+            panel4.Controls.Add(dtpFechaNacimiento);
             panel4.Controls.Add(label26);
-            panel4.Controls.Add(textBox22);
+            panel4.Controls.Add(txtReferencia);
             panel4.Controls.Add(label25);
             panel4.Controls.Add(label24);
-            panel4.Controls.Add(textBox20);
+            panel4.Controls.Add(txtTelefono);
             panel4.Controls.Add(label18);
-            panel4.Controls.Add(textBox15);
+            panel4.Controls.Add(txtCorreo);
             panel4.Controls.Add(label19);
-            panel4.Controls.Add(textBox16);
+            panel4.Controls.Add(txtDireccion);
             panel4.Controls.Add(label20);
-            panel4.Controls.Add(textBox17);
+            panel4.Controls.Add(txtApellidos);
             panel4.Controls.Add(label21);
-            panel4.Controls.Add(textBox18);
+            panel4.Controls.Add(txtCedula);
             panel4.Controls.Add(label22);
             panel4.Controls.Add(label23);
-            panel4.Controls.Add(textBox19);
             panel4.Dock = DockStyle.Right;
             panel4.Location = new Point(-10, 0);
             panel4.Name = "panel4";
             panel4.Size = new Size(480, 553);
             panel4.TabIndex = 16;
             // 
-            // btnEnviarDatosCliente
+            // txtNombres
             // 
-            btnEnviarDatosCliente.Location = new Point(24, 480);
-            btnEnviarDatosCliente.Name = "btnEnviarDatosCliente";
-            btnEnviarDatosCliente.Size = new Size(396, 49);
-            btnEnviarDatosCliente.TabIndex = 8;
-            btnEnviarDatosCliente.Text = "Enviar";
-            btnEnviarDatosCliente.UseVisualStyleBackColor = true;
+            txtNombres.AcceptsTab = true;
+            txtNombres.Location = new Point(175, 162);
+            txtNombres.Name = "txtNombres";
+            txtNombres.Size = new Size(245, 23);
+            txtNombres.TabIndex = 5;
             // 
-            // dateTimePicker1
+            // btnCrearCliente
             // 
-            dateTimePicker1.Location = new Point(174, 361);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(245, 23);
-            dateTimePicker1.TabIndex = 22;
+            btnCrearCliente.Location = new Point(24, 480);
+            btnCrearCliente.Name = "btnCrearCliente";
+            btnCrearCliente.Size = new Size(396, 49);
+            btnCrearCliente.TabIndex = 13;
+            btnCrearCliente.Text = "Enviar";
+            btnCrearCliente.UseVisualStyleBackColor = true;
+            btnCrearCliente.Click += btnCrearCliente_Click;
+            // 
+            // dtpFechaNacimiento
+            // 
+            dtpFechaNacimiento.Location = new Point(174, 361);
+            dtpFechaNacimiento.Name = "dtpFechaNacimiento";
+            dtpFechaNacimiento.Size = new Size(245, 23);
+            dtpFechaNacimiento.TabIndex = 10;
             // 
             // label26
             // 
@@ -265,12 +274,12 @@
             label26.Text = "Referencia:";
             label26.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // textBox22
+            // txtReferencia
             // 
-            textBox22.Location = new Point(175, 423);
-            textBox22.Name = "textBox22";
-            textBox22.Size = new Size(245, 23);
-            textBox22.TabIndex = 20;
+            txtReferencia.Location = new Point(175, 423);
+            txtReferencia.Name = "txtReferencia";
+            txtReferencia.Size = new Size(245, 23);
+            txtReferencia.TabIndex = 12;
             // 
             // label25
             // 
@@ -297,12 +306,13 @@
             label24.Text = "Telefono:";
             label24.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // textBox20
+            // txtTelefono
             // 
-            textBox20.Location = new Point(175, 310);
-            textBox20.Name = "textBox20";
-            textBox20.Size = new Size(245, 23);
-            textBox20.TabIndex = 16;
+            txtTelefono.Location = new Point(175, 310);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(245, 23);
+            txtTelefono.TabIndex = 9;
+            txtTelefono.TextChanged += txtTelefono_TextChanged;
             // 
             // label18
             // 
@@ -317,12 +327,12 @@
             label18.Text = "Correo:";
             label18.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // textBox15
+            // txtCorreo
             // 
-            textBox15.Location = new Point(175, 274);
-            textBox15.Name = "textBox15";
-            textBox15.Size = new Size(245, 23);
-            textBox15.TabIndex = 14;
+            txtCorreo.Location = new Point(175, 274);
+            txtCorreo.Name = "txtCorreo";
+            txtCorreo.Size = new Size(245, 23);
+            txtCorreo.TabIndex = 8;
             // 
             // label19
             // 
@@ -337,12 +347,12 @@
             label19.Text = "Dirección:";
             label19.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // textBox16
+            // txtDireccion
             // 
-            textBox16.Location = new Point(175, 237);
-            textBox16.Name = "textBox16";
-            textBox16.Size = new Size(245, 23);
-            textBox16.TabIndex = 12;
+            txtDireccion.Location = new Point(175, 237);
+            txtDireccion.Name = "txtDireccion";
+            txtDireccion.Size = new Size(245, 23);
+            txtDireccion.TabIndex = 7;
             // 
             // label20
             // 
@@ -357,12 +367,12 @@
             label20.Text = "Apellidos:";
             label20.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // textBox17
+            // txtApellidos
             // 
-            textBox17.Location = new Point(175, 199);
-            textBox17.Name = "textBox17";
-            textBox17.Size = new Size(245, 23);
-            textBox17.TabIndex = 10;
+            txtApellidos.Location = new Point(175, 199);
+            txtApellidos.Name = "txtApellidos";
+            txtApellidos.Size = new Size(245, 23);
+            txtApellidos.TabIndex = 6;
             // 
             // label21
             // 
@@ -377,12 +387,12 @@
             label21.Text = "Cedula:";
             label21.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // textBox18
+            // txtCedula
             // 
-            textBox18.Location = new Point(175, 126);
-            textBox18.Name = "textBox18";
-            textBox18.Size = new Size(245, 23);
-            textBox18.TabIndex = 8;
+            txtCedula.Location = new Point(175, 126);
+            txtCedula.Name = "txtCedula";
+            txtCedula.Size = new Size(245, 23);
+            txtCedula.TabIndex = 4;
             // 
             // label22
             // 
@@ -408,13 +418,6 @@
             label23.Size = new Size(318, 37);
             label23.TabIndex = 6;
             label23.Text = "Información del Cliente";
-            // 
-            // textBox19
-            // 
-            textBox19.Location = new Point(175, 162);
-            textBox19.Name = "textBox19";
-            textBox19.Size = new Size(245, 23);
-            textBox19.TabIndex = 6;
             // 
             // label12
             // 
@@ -732,37 +735,17 @@
             textBox1.Size = new Size(142, 23);
             textBox1.TabIndex = 6;
             // 
-            // btnEditarCliente
-            // 
-            btnEditarCliente.Location = new Point(339, 95);
-            btnEditarCliente.Name = "btnEditarCliente";
-            btnEditarCliente.Size = new Size(75, 23);
-            btnEditarCliente.TabIndex = 6;
-            btnEditarCliente.Text = "Editar";
-            btnEditarCliente.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(420, 95);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 7;
-            button2.Text = "Crear";
-            button2.UseVisualStyleBackColor = true;
-            // 
             // FormGestionClientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(20, 37, 78);
             ClientSize = new Size(1159, 553);
-            Controls.Add(button2);
-            Controls.Add(btnEditarCliente);
             Controls.Add(panel1);
             Controls.Add(label1);
             Controls.Add(lblClientesTitle);
             Controls.Add(buttonBuscarCliente);
-            Controls.Add(textBoxBuscarCliente);
+            Controls.Add(txtSearchByCedula);
             Controls.Add(dataGridViewClientes);
             Name = "FormGestionClientes";
             Text = "Gestion de Clientes";
@@ -785,7 +768,7 @@
         #endregion
 
         private DataGridView dataGridViewClientes;
-        private TextBox textBoxBuscarCliente;
+        private TextBox txtSearchByCedula;
         private Button buttonBuscarCliente;
         private Label lblClientesTitle;
         private Label label1;
@@ -801,21 +784,20 @@
         private Panel panel3;
         private Panel panel4;
         private Label label26;
-        private TextBox textBox22;
+        private TextBox txtReferencia;
         private Label label25;
         private Label label24;
-        private TextBox textBox20;
+        private TextBox txtTelefono;
         private Label label18;
-        private TextBox textBox15;
+        private TextBox txtCorreo;
         private Label label19;
-        private TextBox textBox16;
+        private TextBox txtDireccion;
         private Label label20;
-        private TextBox textBox17;
+        private TextBox txtApellidos;
         private Label label21;
-        private TextBox textBox18;
+        private TextBox txtCedula;
         private Label label22;
         private Label label23;
-        private TextBox textBox19;
         private Label label12;
         private TextBox textBox10;
         private Label label13;
@@ -840,9 +822,8 @@
         private TextBox textBox8;
         private Label label5;
         private TextBox textBox4;
-        private DateTimePicker dateTimePicker1;
-        private Button btnEditarCliente;
-        private Button button2;
-        private Button btnEnviarDatosCliente;
+        private DateTimePicker dtpFechaNacimiento;
+        private Button btnCrearCliente;
+        private TextBox txtNombres;
     }
 }
