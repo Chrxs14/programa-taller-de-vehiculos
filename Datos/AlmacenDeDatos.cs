@@ -6,13 +6,13 @@ namespace POE_proyecto.Datos
     public static class AlmacenDeDatos
     {
         private static readonly List<Cliente> Clientes = new();
-        private static readonly List<Mecanico> Mecanicos = new();
+        //private static readonly List<Mecanico> Mecanicos = new();
         private static readonly List<Mantenimiento> Mantenimientos = new();
         private static readonly List<Vehiculo> Vehiculos = new();
         private static readonly List<Empleado> Empleados = new();
         private static readonly List<Servicio> Servicios = new();
         public static IReadOnlyList<Cliente> ClientesList => Clientes.AsReadOnly();
-        public static IReadOnlyList<Mecanico> MecanicosList => Mecanicos.AsReadOnly();
+        //public static IReadOnlyList<Mecanico> MecanicosList => Mecanicos.AsReadOnly();
         public static IReadOnlyList<Mantenimiento> MantenimientosList => Mantenimientos.AsReadOnly();
         public static IReadOnlyList<Vehiculo> VehiculosList => Vehiculos.AsReadOnly();
         public static IReadOnlyList<Empleado> EmpleadosList => Empleados.AsReadOnly();
@@ -23,10 +23,10 @@ namespace POE_proyecto.Datos
             Clientes.Add(cliente);
         }
 
-        public static void AgregarMecanico(Mecanico mecanico)
-        {
-            Mecanicos.Add(mecanico);
-        }
+        //public static void AgregarMecanico(Mecanico mecanico)
+        //{
+        //    Mecanicos.Add(mecanico);
+        //}
 
         public static void AgregarMantenimiento(Mantenimiento mantenimiento)
         {
@@ -53,10 +53,10 @@ namespace POE_proyecto.Datos
             return Clientes.FirstOrDefault(c => c.Cedula == cedula);
         }
 
-        public static Mecanico BuscarMecanico(string cedula)
-        {
-            return Mecanicos.FirstOrDefault(m => m.Cedula == cedula);
-        }
+        //public static Mecanico BuscarMecanico(string cedula)
+        //{
+        //    return Mecanicos.FirstOrDefault(m => m.Cedula == cedula);
+        //}
 
         public static Vehiculo BuscarVehiculo(string placa)
         {
@@ -91,18 +91,18 @@ namespace POE_proyecto.Datos
             }
         }
 
-        public static void ModificarMecanico(string cedula, Mecanico mecanico)
-        {
-            int index = Mecanicos.FindIndex(m => m.Cedula == cedula);
-            if (index != -1)
-            {
-                Mecanicos[index] = mecanico;
-            }
-            else
-            {
-                throw new KeyNotFoundException($"No se encontró un mecánico con la cédula {cedula}");
-            }
-        }
+        //public static void ModificarMecanico(string cedula, Mecanico mecanico)
+        //{
+        //    int index = Mecanicos.FindIndex(m => m.Cedula == cedula);
+        //    if (index != -1)
+        //    {
+        //        Mecanicos[index] = mecanico;
+        //    }
+        //    else
+        //    {
+        //        throw new KeyNotFoundException($"No se encontró un mecánico con la cédula {cedula}");
+        //    }
+        //}
 
         public static void ModificarVehiculo(string placa, Vehiculo vehiculo)
         {
@@ -154,6 +154,6 @@ namespace POE_proyecto.Datos
             {
                 throw new KeyNotFoundException($"No se encontró un servicio con el código {codigo}");
             }
-        }
+        }    
     }
 }
