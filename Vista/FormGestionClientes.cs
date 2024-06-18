@@ -76,7 +76,7 @@ namespace POE_proyecto.Vista
 
                 if (clienteAgregado)
                 {
-                    MessageBox.Show("Cliente creado correctamente", "Cliente Creado");
+                    MessageBox.Show("Cliente creado/editado correctamente", "Cliente Creado");
                     LoadClientes();
                     resetTextBoxes();
                 }

@@ -1,4 +1,5 @@
 using POE_proyecto.Controlador;
+using POE_proyecto.Modelo;
 using POE_proyecto.Vista;
 
 namespace POE_proyecto

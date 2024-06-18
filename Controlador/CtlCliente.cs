@@ -52,7 +52,9 @@ namespace POE_proyecto.Controlador
         {
             if (AlmacenDeDatos.BuscarCliente(cedula) != null)
             {
-                return false;
+                Cliente nuevoCliente = new Cliente(cedula, nombres, apellidos, direccion, correo, numeroTelefono, fechaNacimiento, referencia, DateTime.Now);
+                AlmacenDeDatos.ModificarCliente(cedula,nuevoCliente);
+                return true;
             }
 
             if (Validador.ValidarCamposCliente(cedula, correo, numeroTelefono, nombres, apellidos, direccion, fechaNacimiento)) {
