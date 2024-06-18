@@ -209,7 +209,7 @@
             panelTitleBar.Dock = DockStyle.Top;
             panelTitleBar.Location = new Point(220, 0);
             panelTitleBar.Name = "panelTitleBar";
-            panelTitleBar.Size = new Size(864, 75);
+            panelTitleBar.Size = new Size(1175, 75);
             panelTitleBar.TabIndex = 1;
             panelTitleBar.Paint += panelTitleBar_Paint;
             panelTitleBar.MouseDown += panelTitleBar_MouseDown;
@@ -244,14 +244,14 @@
             panelDesktop.Dock = DockStyle.Fill;
             panelDesktop.Location = new Point(220, 75);
             panelDesktop.Name = "panelDesktop";
-            panelDesktop.Size = new Size(864, 583);
+            panelDesktop.Size = new Size(1175, 583);
             panelDesktop.TabIndex = 2;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 40F);
-            label1.Location = new Point(293, 233);
+            label1.Location = new Point(444, 233);
             label1.Name = "label1";
             label1.Size = new Size(295, 72);
             label1.TabIndex = 0;
@@ -262,7 +262,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1084, 658);
+            ClientSize = new Size(1395, 658);
             Controls.Add(panelDesktop);
             Controls.Add(panelTitleBar);
             Controls.Add(panelMenu);
