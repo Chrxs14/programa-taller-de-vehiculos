@@ -17,13 +17,14 @@ namespace POE_proyecto.Controlador
         /// <returns>Lista de mecanicos</returns>
         public List<Mecanico> ObtenerMecanicos()
         {
-            return AlmacenDeDatos.MecanicosList
-                                 .Where(m => m.Estado)
+            return AlmacenDeDatos.EmpleadosList
+                                 .Where(e => e.Estado && e is Mecanico)
+                                 .Cast<Mecanico>()
                                  .ToList();
         }
 
         /// <summary>
-        /// 
+        /// Obtiene un mecanico mediante su cedula
         /// </summary>
         /// <returns>
         /// <c>true</c> si se encuentra el mecanico; de lo contrario, <c>false</c> si el mecanico no fue encontrado.
@@ -32,7 +33,11 @@ namespace POE_proyecto.Controlador
         {
             if (Validador.ValidarCedula(cedula))
             {
-                return AlmacenDeDatos.BuscarMecanico(cedula);
+                var empleado = AlmacenDeDatos.BuscarEmpleado(cedula);
+                if (empleado is Mecanico mecanico && mecanico.Estado)
+                {
+                    return mecanico;
+                }
             }
             return null;
         }
@@ -51,7 +56,7 @@ namespace POE_proyecto.Controlador
             {
                 Mecanico nuevoMecanico = new(cedula, nombres, apellidos, direccion, correo, numeroTelefono, fechaNacimiento, 
                                              DateTime.Now, especialidad, nivelDeExperiencia);
-                AlmacenDeDatos.AgregarMecanico(nuevoMecanico);
+                AlmacenDeDatos.AgregarEmpleado(nuevoMecanico);
                 return true;
             }
             return false;
@@ -66,12 +71,12 @@ namespace POE_proyecto.Controlador
         public bool ModificarMecanicoByCedula(string cedula, string nombres, string apellidos, string direccion, string correo, string numeroTelefono
                                                       , DateTime fechaNacimiento, string especialidad, string nivelDeExperiencia)
         {
-            if (AlmacenDeDatos.BuscarMecanico(cedula) != null)
+            if (AlmacenDeDatos.BuscarEmpleado(cedula) != null)
             {
                 if (Validador.ValidarCamposMecanico(cedula, nombres, apellidos, direccion, correo, numeroTelefono, fechaNacimiento,  especialidad, nivelDeExperiencia))
                 {
                     Mecanico mecanicoEditado = new(cedula, nombres, apellidos, direccion, correo, numeroTelefono, fechaNacimiento, DateTime.Now, especialidad, nivelDeExperiencia);
-                    AlmacenDeDatos.ModificarMecanico(cedula, mecanicoEditado);
+                    AlmacenDeDatos.ModificarEmpleado(cedula, mecanicoEditado);
                     return true;
                 }
             }
@@ -86,7 +91,7 @@ namespace POE_proyecto.Controlador
         /// </returns>
         public bool EliminarMecanicoByCedula(string cedula, bool estado)
         {
-            Mecanico mecanico = AlmacenDeDatos.BuscarMecanico(cedula);
+            Mecanico mecanico = (Mecanico) AlmacenDeDatos.BuscarEmpleado(cedula);
             if (mecanico != null)
             {
                 mecanico.Estado = estado;

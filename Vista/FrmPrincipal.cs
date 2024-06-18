@@ -11,6 +11,7 @@ using System.Windows.Media;
 using FontAwesome.Sharp;
 using Color = System.Drawing.Color;
 using System.Runtime.InteropServices;
+using POE_proyecto.Controlador;
 
 namespace POE_proyecto.Vista
 {
@@ -19,10 +20,11 @@ namespace POE_proyecto.Vista
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
+        private CtlPrincipal CtlPrincipal;
 
-
-        public FrmPrincipal()
+        public FrmPrincipal(CtlPrincipal ctlPrincipal)
         {
+            CtlPrincipal = ctlPrincipal;
             InitializeComponent();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(10, 60);
@@ -136,7 +138,7 @@ namespace POE_proyecto.Vista
         private void iconButton1_Click_2(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new FormGestionClientes());
+            OpenChildForm(new FormGestionClientes(CtlPrincipal));
         }
 
         private void panel2_Paint_1(object sender, PaintEventArgs e)
@@ -147,19 +149,19 @@ namespace POE_proyecto.Vista
         private void vehicleManageBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new FormGestionVehiculos());
+            OpenChildForm(new FormGestionVehiculos(CtlPrincipal));
         }
 
         private void maintenanceManageBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new FormGestionMantenimientos());
+            OpenChildForm(new FormGestionMantenimientos(CtlPrincipal));
         }
 
         private void reportBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new FormReporte());
+            OpenChildForm(new FormServicios(CtlPrincipal));
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

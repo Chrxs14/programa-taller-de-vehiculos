@@ -50,6 +50,12 @@ namespace POE_proyecto.Controlador
             string referencia
             )
         {
+            if (AlmacenDeDatos.BuscarCliente(cedula) != null)
+            {
+                return false;
+            }
+
+           
             if(Validador.ValidarCamposCliente(cedula, correo, numeroTelefono, nombres, apellidos, direccion, fechaNacimiento)) {
                 Cliente nuevoCliente = new(cedula, nombres, apellidos, direccion, correo, numeroTelefono, 
                                             fechaNacimiento, referencia, DateTime.Now);

@@ -81,6 +81,45 @@ namespace POE_proyecto.Utilidades
             var regex = new Regex(@"^M\d+$");
             return regex.IsMatch(codigoMantenimiento);
         }
+
+        /// <summary>
+        /// Validar el formato de un id de servicio.
+        /// </summary>
+        /// <returns>
+        /// <c>true</c> si el id de servicio es válido; de lo contrario, <c>false</c>.
+        /// </returns>
+        public static bool ValidarIdServicio(int id)
+        {
+            return id >= 0 && id <= 100;
+        }
+
+        /// <summary>
+        /// Validar los campos proporcionados del servicio.
+        /// </summary>
+        /// <returns>   
+        /// <c>true</c> si todos los campos son válidos; de lo contrario, <c>false</c>.
+        /// </returns>
+        public static bool ValidarCamposServicio(string nombre, float precio, string descripcion)
+        {
+            return ValidarCadena(nombre) && ValidarPrecio(precio) && ValidarCadena(descripcion);
+        }
+
+        public static bool ValidarPrecio(float precio)
+        {
+            return precio >= 0.00;
+        }
+
+        /// <summary>
+        /// Validar los campos proporcionados del cliente.
+        /// </summary>
+        /// <returns>
+        /// <c>true</c> si todos los campos son válidos; de lo contrario, <c>false</c>.
+        /// </returns>
+        public static bool ValidarCamposEmpleado(string cedula, string correo, string numeroTelefono, string nombres, string apellidos, string direccion, DateTime fechaNacimiento)
+        {
+            return ValidarCedula(cedula) && ValidarCorreo(correo) && ValidarTelefono(numeroTelefono) &&
+                   ValidarNombres(nombres) && ValidarNombres(apellidos) && ValidarCadena(direccion) && ValidarFechaNacimiento(fechaNacimiento);
+        }
         #endregion
 
         #region Métodos privados
@@ -90,7 +129,7 @@ namespace POE_proyecto.Utilidades
         /// <returns>
         /// <c>true</c> si la dirección de correo electrónico es válida; de lo contrario, <c>false</c>.
         /// </returns>
-        private static bool ValidarCorreo(string correo)
+        public static bool ValidarCorreo(string correo)
         {
             var regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
             return regex.IsMatch(correo);
@@ -102,7 +141,7 @@ namespace POE_proyecto.Utilidades
         /// <returns>
         /// <c>true</c> si el número de teléfono es válido; de lo contrario, <c>false</c>.
         /// </returns>
-        private static bool ValidarTelefono(string telefono)
+        public static bool ValidarTelefono(string telefono)
         {
             var regex = new Regex(@"^09\d{8}$");
             return regex.IsMatch(telefono);
@@ -116,7 +155,7 @@ namespace POE_proyecto.Utilidades
         /// </returns>
         public static bool ValidarNombres(string nombres)
         {
-            var regex = new Regex(@"^[a-zA-Z\s]+$");
+            var regex = new Regex(@"^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+$");
             return !string.IsNullOrEmpty(nombres) && regex.IsMatch(nombres);
         }
 

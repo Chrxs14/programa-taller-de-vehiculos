@@ -5,19 +5,20 @@
         #region fields
         public int Codigo { get; set; }
         public string? Nombre { get; set; }
-        public int Precio { get; set; }
+        public float Precio { get; set; }
         public string? Descripcion { get; set; }
-
+        public bool Estado { get; set; }
         #endregion
 
         #region constructors
         public Servicio() { }
-        public Servicio(int codigo, string nombre, int precio, string descripcion)
+        public Servicio(int codigo, string nombre, float precio, string descripcion)
         {
             Codigo = codigo;
             Nombre = nombre;
             Precio = precio;
             Descripcion = descripcion;
+            Estado = true;
         }
         #endregion
     }
