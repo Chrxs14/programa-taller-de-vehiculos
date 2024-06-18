@@ -78,13 +78,13 @@ namespace POE_proyecto.Controlador
                 "El vehículo presenta vibraciones al frenar a alta velocidad. Se sospecha desbalanceo de los discos de freno.",
                 "Se desmontaron los discos de freno delanteros y traseros para su inspección. Se procedió al balanceo de los discos y a la reinstalación. Prueba de frenado realizada con éxito.",
                 false,
-                new List<Servicio> { ctlServicio.ObtenerServicioById(0), ctlServicio.ObtenerServicioById(1) });
+                new List<Servicio> { ctlServicio.ObtenerServicioById(2), ctlServicio.ObtenerServicioById(1) });
 
             ctlMantenimiento.AgregarMantenimiento(ctlCliente.ObtenerClienteByCedula("1010101010"), ctlMecanico.ObtenerMecanicoByCedula("1010101010"), new DateTime(2024, 6, 15), ctlVehiculo.ObtenerVehiculoByPlaca("ABC-1231"),
                 "El vehículo presenta pérdida de potencia al acelerar. Se diagnosticó un problema en el sistema de inyección de combustible.",
                 "Se procedió a limpiar los inyectores y a realizar una prueba de presión en el sistema de combustible. Se verificó el correcto funcionamiento y se restableció la potencia del motor.",
                 true,
-                new List<Servicio> { ctlServicio.ObtenerServicioById(0), ctlServicio.ObtenerServicioById(2) });
+                new List<Servicio> { ctlServicio.ObtenerServicioById(1), ctlServicio.ObtenerServicioById(2), ctlServicio.ObtenerServicioById(3), ctlServicio.ObtenerServicioById(4) });
         }
         #endregion
     }
