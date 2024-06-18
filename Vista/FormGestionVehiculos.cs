@@ -16,5 +16,10 @@ namespace POE_proyecto.Vista
         {
             InitializeComponent();
         }
+
+        private void FormGestionVehiculos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

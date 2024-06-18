@@ -72,16 +72,7 @@ namespace POE_proyecto.Vista
             LoadClientes();
             dataGridViewClientes.DataSource = principal.CtlCliente.ObtenerClientes();
         }
-
-        private void textBoxBuscarCliente_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxBuscarCliente_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void dataGridViewClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
