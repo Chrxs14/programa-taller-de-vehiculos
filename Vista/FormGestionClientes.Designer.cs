@@ -112,7 +112,6 @@
             textBoxBuscarCliente.Name = "textBoxBuscarCliente";
             textBoxBuscarCliente.Size = new Size(142, 23);
             textBoxBuscarCliente.TabIndex = 1;
-            
             // 
             // buttonBuscarCliente
             // 
@@ -248,7 +247,6 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Anchor = AnchorStyles.None;
             dateTimePicker1.Location = new Point(174, 361);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(245, 23);

@@ -29,24 +29,20 @@
         private void InitializeComponent()
         {
             btnEnviarDatosMantenimiento = new Button();
-            dateTimePicker1 = new DateTimePicker();
             label26 = new Label();
-            textBox22 = new TextBox();
             label25 = new Label();
-            label24 = new Label();
-            textBox20 = new TextBox();
             label18 = new Label();
-            textBox15 = new TextBox();
             label19 = new Label();
-            textBox16 = new TextBox();
-            label20 = new Label();
-            textBox17 = new TextBox();
             label21 = new Label();
-            textBox18 = new TextBox();
             label22 = new Label();
             lblMantenimientoInfo = new Label();
-            textBox19 = new TextBox();
             panel4 = new Panel();
+            checkBox1 = new CheckBox();
+            comboBox3 = new ComboBox();
+            comboBox2 = new ComboBox();
+            comboBox1 = new ComboBox();
+            textBox1 = new TextBox();
+            dateTimePicker2 = new DateTimePicker();
             btnCrearMantenimiento = new Button();
             btnEditarMantenimiento = new Button();
             lblCodigoMantenimiento = new Label();
@@ -54,27 +50,21 @@
             btnBuscarMantenimiento = new Button();
             txtCodigoMantenimiento = new TextBox();
             dataGridViewClientes = new DataGridView();
-            dateTimePicker2 = new DateTimePicker();
+            checkedListBox1 = new CheckedListBox();
+            label1 = new Label();
+            textBox2 = new TextBox();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).BeginInit();
             SuspendLayout();
             // 
             // btnEnviarDatosMantenimiento
             // 
-            btnEnviarDatosMantenimiento.Location = new Point(24, 480);
+            btnEnviarDatosMantenimiento.Location = new Point(24, 576);
             btnEnviarDatosMantenimiento.Name = "btnEnviarDatosMantenimiento";
-            btnEnviarDatosMantenimiento.Size = new Size(396, 49);
+            btnEnviarDatosMantenimiento.Size = new Size(427, 49);
             btnEnviarDatosMantenimiento.TabIndex = 8;
             btnEnviarDatosMantenimiento.Text = "Enviar";
             btnEnviarDatosMantenimiento.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Anchor = AnchorStyles.None;
-            dateTimePicker1.Location = new Point(314, 587);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(245, 23);
-            dateTimePicker1.TabIndex = 22;
             // 
             // label26
             // 
@@ -82,51 +72,24 @@
             label26.BackColor = Color.Transparent;
             label26.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             label26.ForeColor = SystemColors.Control;
-            label26.Location = new Point(24, 418);
+            label26.Location = new Point(14, 412);
             label26.Name = "label26";
-            label26.Size = new Size(118, 28);
+            label26.Size = new Size(102, 28);
             label26.TabIndex = 21;
-            label26.Text = "Referencia:";
-            label26.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // textBox22
-            // 
-            textBox22.Location = new Point(175, 423);
-            textBox22.Name = "textBox22";
-            textBox22.Size = new Size(245, 23);
-            textBox22.TabIndex = 20;
+            label26.Text = "Servicios:";
+            label26.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label25
             // 
             label25.BackColor = Color.Transparent;
             label25.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             label25.ForeColor = SystemColors.Control;
-            label25.Location = new Point(24, 351);
+            label25.Location = new Point(14, 314);
             label25.Name = "label25";
-            label25.Size = new Size(149, 56);
+            label25.Size = new Size(170, 56);
             label25.TabIndex = 19;
-            label25.Text = "Fecha de nacimiento:";
+            label25.Text = "Fecha de Mantenimiento:";
             label25.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // label24
-            // 
-            label24.AutoSize = true;
-            label24.BackColor = Color.Transparent;
-            label24.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            label24.ForeColor = SystemColors.Control;
-            label24.Location = new Point(24, 306);
-            label24.Name = "label24";
-            label24.Size = new Size(99, 28);
-            label24.TabIndex = 17;
-            label24.Text = "Telefono:";
-            label24.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // textBox20
-            // 
-            textBox20.Location = new Point(175, 310);
-            textBox20.Name = "textBox20";
-            textBox20.Size = new Size(245, 23);
-            textBox20.TabIndex = 16;
             // 
             // label18
             // 
@@ -134,19 +97,12 @@
             label18.BackColor = Color.Transparent;
             label18.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             label18.ForeColor = SystemColors.Control;
-            label18.Location = new Point(24, 269);
+            label18.Location = new Point(14, 230);
             label18.Name = "label18";
-            label18.Size = new Size(80, 28);
+            label18.Size = new Size(130, 28);
             label18.TabIndex = 15;
-            label18.Text = "Correo:";
+            label18.Text = "Diagnostico:";
             label18.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // textBox15
-            // 
-            textBox15.Location = new Point(175, 274);
-            textBox15.Name = "textBox15";
-            textBox15.Size = new Size(245, 23);
-            textBox15.TabIndex = 14;
             // 
             // label19
             // 
@@ -154,39 +110,12 @@
             label19.BackColor = Color.Transparent;
             label19.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             label19.ForeColor = SystemColors.Control;
-            label19.Location = new Point(24, 233);
+            label19.Location = new Point(14, 187);
             label19.Name = "label19";
-            label19.Size = new Size(107, 28);
+            label19.Size = new Size(98, 28);
             label19.TabIndex = 13;
-            label19.Text = "Dirección:";
+            label19.Text = "Vehiculo:";
             label19.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // textBox16
-            // 
-            textBox16.Location = new Point(175, 237);
-            textBox16.Name = "textBox16";
-            textBox16.Size = new Size(245, 23);
-            textBox16.TabIndex = 12;
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.BackColor = Color.Transparent;
-            label20.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            label20.ForeColor = SystemColors.Control;
-            label20.Location = new Point(24, 194);
-            label20.Name = "label20";
-            label20.Size = new Size(105, 28);
-            label20.TabIndex = 11;
-            label20.Text = "Apellidos:";
-            label20.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // textBox17
-            // 
-            textBox17.Location = new Point(175, 199);
-            textBox17.Name = "textBox17";
-            textBox17.Size = new Size(245, 23);
-            textBox17.TabIndex = 10;
             // 
             // label21
             // 
@@ -194,19 +123,12 @@
             label21.BackColor = Color.Transparent;
             label21.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             label21.ForeColor = SystemColors.Control;
-            label21.Location = new Point(24, 121);
+            label21.Location = new Point(14, 108);
             label21.Name = "label21";
-            label21.Size = new Size(81, 28);
+            label21.Size = new Size(83, 28);
             label21.TabIndex = 9;
-            label21.Text = "Cedula:";
+            label21.Text = "Cliente:";
             label21.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // textBox18
-            // 
-            textBox18.Location = new Point(175, 126);
-            textBox18.Name = "textBox18";
-            textBox18.Size = new Size(245, 23);
-            textBox18.TabIndex = 8;
             // 
             // label22
             // 
@@ -214,11 +136,11 @@
             label22.BackColor = Color.Transparent;
             label22.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             label22.ForeColor = SystemColors.Control;
-            label22.Location = new Point(24, 157);
+            label22.Location = new Point(14, 148);
             label22.Name = "label22";
-            label22.Size = new Size(103, 28);
+            label22.Size = new Size(108, 28);
             label22.TabIndex = 7;
-            label22.Text = "Nombres:";
+            label22.Text = "Mecanico:";
             label22.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblMantenimientoInfo
@@ -227,46 +149,89 @@
             lblMantenimientoInfo.BackColor = Color.FromArgb(25, 30, 70);
             lblMantenimientoInfo.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             lblMantenimientoInfo.ForeColor = SystemColors.Control;
-            lblMantenimientoInfo.Location = new Point(24, 59);
+            lblMantenimientoInfo.Location = new Point(24, 47);
             lblMantenimientoInfo.Name = "lblMantenimientoInfo";
             lblMantenimientoInfo.Size = new Size(427, 37);
             lblMantenimientoInfo.TabIndex = 6;
             lblMantenimientoInfo.Text = "Información del Mantenimiento";
             // 
-            // textBox19
-            // 
-            textBox19.Location = new Point(175, 162);
-            textBox19.Name = "textBox19";
-            textBox19.Size = new Size(245, 23);
-            textBox19.TabIndex = 6;
-            // 
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(25, 30, 70);
+            panel4.Controls.Add(textBox2);
+            panel4.Controls.Add(label1);
+            panel4.Controls.Add(checkedListBox1);
+            panel4.Controls.Add(checkBox1);
+            panel4.Controls.Add(comboBox3);
+            panel4.Controls.Add(comboBox2);
+            panel4.Controls.Add(comboBox1);
+            panel4.Controls.Add(textBox1);
             panel4.Controls.Add(dateTimePicker2);
             panel4.Controls.Add(btnEnviarDatosMantenimiento);
-            panel4.Controls.Add(dateTimePicker1);
             panel4.Controls.Add(label26);
-            panel4.Controls.Add(textBox22);
             panel4.Controls.Add(label25);
-            panel4.Controls.Add(label24);
-            panel4.Controls.Add(textBox20);
             panel4.Controls.Add(label18);
-            panel4.Controls.Add(textBox15);
             panel4.Controls.Add(label19);
-            panel4.Controls.Add(textBox16);
-            panel4.Controls.Add(label20);
-            panel4.Controls.Add(textBox17);
             panel4.Controls.Add(label21);
-            panel4.Controls.Add(textBox18);
             panel4.Controls.Add(label22);
             panel4.Controls.Add(lblMantenimientoInfo);
-            panel4.Controls.Add(textBox19);
             panel4.Dock = DockStyle.Right;
             panel4.Location = new Point(679, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(480, 553);
+            panel4.Size = new Size(480, 691);
             panel4.TabIndex = 17;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            checkBox1.ForeColor = SystemColors.ButtonHighlight;
+            checkBox1.Location = new Point(175, 532);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(99, 23);
+            checkBox1.TabIndex = 28;
+            checkBox1.Text = "Correctivo";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // comboBox3
+            // 
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new Point(175, 192);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(276, 23);
+            comboBox3.TabIndex = 27;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(175, 153);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(276, 23);
+            comboBox2.TabIndex = 26;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(175, 113);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(276, 23);
+            comboBox1.TabIndex = 25;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(175, 230);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(276, 72);
+            textBox1.TabIndex = 24;
+            // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Anchor = AnchorStyles.None;
+            dateTimePicker2.Location = new Point(175, 333);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(276, 23);
+            dateTimePicker2.TabIndex = 23;
             // 
             // btnCrearMantenimiento
             // 
@@ -337,20 +302,40 @@
             dataGridViewClientes.Size = new Size(626, 354);
             dataGridViewClientes.TabIndex = 18;
             // 
-            // dateTimePicker2
+            // checkedListBox1
             // 
-            dateTimePicker2.Anchor = AnchorStyles.None;
-            dateTimePicker2.Location = new Point(175, 361);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(245, 23);
-            dateTimePicker2.TabIndex = 23;
+            checkedListBox1.FormattingEnabled = true;
+            checkedListBox1.Location = new Point(175, 387);
+            checkedListBox1.Name = "checkedListBox1";
+            checkedListBox1.Size = new Size(276, 76);
+            checkedListBox1.TabIndex = 29;
+            // 
+            // label1
+            // 
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            label1.ForeColor = SystemColors.Control;
+            label1.Location = new Point(14, 489);
+            label1.Name = "label1";
+            label1.Size = new Size(130, 64);
+            label1.TabIndex = 30;
+            label1.Text = "Trabajos Realizados:";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(175, 489);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(276, 37);
+            textBox2.TabIndex = 31;
             // 
             // FormGestionMantenimientos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(20, 37, 78);
-            ClientSize = new Size(1159, 553);
+            ClientSize = new Size(1159, 691);
             Controls.Add(btnCrearMantenimiento);
             Controls.Add(btnEditarMantenimiento);
             Controls.Add(lblCodigoMantenimiento);
@@ -373,21 +358,13 @@
         private Button btnEnviarDatosMantenimiento;
         private DateTimePicker dateTimePicker1;
         private Label label26;
-        private TextBox textBox22;
         private Label label25;
         private Label label24;
-        private TextBox textBox20;
         private Label label18;
-        private TextBox textBox15;
         private Label label19;
-        private TextBox textBox16;
-        private Label label20;
-        private TextBox textBox17;
         private Label label21;
-        private TextBox textBox18;
         private Label label22;
         private Label lblMantenimientoInfo;
-        private TextBox textBox19;
         private Panel panel4;
         private Button btnCrearMantenimiento;
         private Button btnEditarMantenimiento;
@@ -397,5 +374,13 @@
         private TextBox txtCodigoMantenimiento;
         private DataGridView dataGridViewClientes;
         private DateTimePicker dateTimePicker2;
+        private ComboBox comboBox3;
+        private ComboBox comboBox2;
+        private ComboBox comboBox1;
+        private TextBox textBox1;
+        private CheckBox checkBox1;
+        private CheckedListBox checkedListBox1;
+        private TextBox textBox2;
+        private Label label1;
     }
 }
