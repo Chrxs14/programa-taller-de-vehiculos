@@ -81,6 +81,40 @@ namespace POE_proyecto.Utilidades
             var regex = new Regex(@"^M\d+$");
             return regex.IsMatch(codigoMantenimiento);
         }
+
+        /// <summary>
+        /// Validar el formato de un id de servicio.
+        /// </summary>
+        /// <returns>
+        /// <c>true</c> si el id de servicio es válido; de lo contrario, <c>false</c>.
+        /// </returns>
+        public static bool ValidarIdServicio(int id)
+        {
+            return id > 0 && id < 100;
+        }
+
+        /// <summary>
+        /// Validar los campos proporcionados del servicio.
+        /// </summary>
+        /// <returns>   
+        /// <c>true</c> si todos los campos son válidos; de lo contrario, <c>false</c>.
+        /// </returns>
+        public static bool ValidarCamposServicio(string nombre, float precio, string descripcion)
+        {
+            return ValidarCadena(nombre) && precio > 0.00 && ValidarCadena(descripcion);
+        }
+
+        /// <summary>
+        /// Validar los campos proporcionados del cliente.
+        /// </summary>
+        /// <returns>
+        /// <c>true</c> si todos los campos son válidos; de lo contrario, <c>false</c>.
+        /// </returns>
+        public static bool ValidarCamposEmpleado(string cedula, string correo, string numeroTelefono, string nombres, string apellidos, string direccion, DateTime fechaNacimiento)
+        {
+            return ValidarCedula(cedula) && ValidarCorreo(correo) && ValidarTelefono(numeroTelefono) &&
+                   ValidarNombres(nombres) && ValidarNombres(apellidos) && ValidarCadena(direccion) && ValidarFechaNacimiento(fechaNacimiento);
+        }
         #endregion
 
         #region Métodos privados

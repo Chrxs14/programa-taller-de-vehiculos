@@ -10,6 +10,8 @@ namespace POE_proyecto.Controlador
         private readonly CtlMecanico ctlMecanico;
         private readonly CtlMantenimiento ctlMantenimiento;
         private readonly CtlVehiculo ctlVehiculo;
+        private readonly CtlServicio ctlServicio;
+        private readonly CtlEmpleado ctlEmpleado;
         #endregion
 
         #region constructors
@@ -19,6 +21,8 @@ namespace POE_proyecto.Controlador
             ctlMecanico = new();
             ctlMantenimiento = new();
             ctlVehiculo = new();
+            ctlServicio = new();
+            ctlEmpleado = new();
         }
         #endregion
 
@@ -27,6 +31,8 @@ namespace POE_proyecto.Controlador
         public CtlMecanico CtlMecanico { get { return ctlMecanico; } }
         public CtlMantenimiento CtlMantenimiento { get { return ctlMantenimiento; } }
         public CtlVehiculo CtlVehiculo { get { return ctlVehiculo; } }
+        public CtlServicio CtlServicio { get { return ctlServicio; } }
+        public CtlEmpleado CtlEmpleado { get { return ctlEmpleado; } }
         #endregion
     }
 }
