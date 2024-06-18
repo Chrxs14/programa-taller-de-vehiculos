@@ -55,7 +55,8 @@ namespace POE_proyecto.Controlador
                 return false;
             }
 
-            if (Validador.ValidarCamposCliente(cedula, correo, numeroTelefono, nombres, apellidos, direccion, fechaNacimiento)) {
+           
+            if(Validador.ValidarCamposCliente(cedula, correo, numeroTelefono, nombres, apellidos, direccion, fechaNacimiento)) {
                 Cliente nuevoCliente = new(cedula, nombres, apellidos, direccion, correo, numeroTelefono, 
                                             fechaNacimiento, referencia, DateTime.Now);
                 AlmacenDeDatos.AgregarCliente(nuevoCliente);

@@ -3,6 +3,7 @@ using System.Data;
 using POE_proyecto.Modelo;
 using POE_proyecto.Utilidades;
 
+
 namespace POE_proyecto.Vista
 {
     public partial class FormGestionVehiculos : Form
@@ -226,7 +227,6 @@ namespace POE_proyecto.Vista
                 txtAnio.Text = vehiculo.Anio;
                 txtKilometraje.Text = vehiculo.Kilometraje;
             }
-
         }
     }
 }

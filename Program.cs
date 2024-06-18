@@ -1,4 +1,4 @@
-using POE_proyecto.Controlador;
+﻿using POE_proyecto.Controlador;
 using POE_proyecto.Vista;
 
 namespace POE_proyecto
@@ -16,7 +16,7 @@ namespace POE_proyecto
             // Habilita los estilos visuales en la app
             Application.EnableVisualStyles();
 
-            //Metodo para inicializar la configuraci�n de la app
+            //Metodo para inicializar la configuración de la app
             ApplicationConfiguration.Initialize();
 
             CtlPrincipal ctlPrincipal = new();
