@@ -22,7 +22,7 @@ namespace POE_proyecto.Datos
         {
             Clientes.Add(cliente);
         }
-
+      
         //public static void AgregarMecanico(Mecanico mecanico)
         //{
         //    Mecanicos.Add(mecanico);
