@@ -1,6 +1,6 @@
 ﻿namespace POE_proyecto.Vista
 {
-    partial class FormGestionClientes
+    partial class FormServicios
     {
         /// <summary>
         /// Required designer variable.
@@ -28,31 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridViewClientes = new DataGridView();
-            txtSearchByCedula = new TextBox();
-            buttonBuscarCliente = new Button();
-            lblClientesTitle = new Label();
-            label1 = new Label();
             panel1 = new Panel();
             panel2 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
-            txtNombres = new TextBox();
-            btnCrearCliente = new Button();
-            dtpFechaNacimiento = new DateTimePicker();
-            label26 = new Label();
-            txtReferencia = new TextBox();
-            label25 = new Label();
-            label24 = new Label();
-            txtTelefono = new TextBox();
-            label18 = new Label();
-            txtCorreo = new TextBox();
+            txtNombre = new TextBox();
+            btnEnviar = new Button();
             label19 = new Label();
-            txtDireccion = new TextBox();
+            txtDescripcion = new TextBox();
             label20 = new Label();
-            txtApellidos = new TextBox();
-            label21 = new Label();
-            txtCedula = new TextBox();
+            txtPrecio = new TextBox();
             label22 = new Label();
             label23 = new Label();
             label12 = new Label();
@@ -86,67 +71,19 @@
             label2 = new Label();
             lblClienteInfo = new Label();
             textBox1 = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).BeginInit();
+            label1 = new Label();
+            lblClientesTitle = new Label();
+            btnBuscar = new Button();
+            txtSearchByCodigo = new TextBox();
+            dgvServicios = new DataGridView();
+            label27 = new Label();
+            txtSearchByNombre = new TextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvServicios).BeginInit();
             SuspendLayout();
-            // 
-            // dataGridViewClientes
-            // 
-            dataGridViewClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewClientes.BackgroundColor = Color.White;
-            dataGridViewClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewClientes.Location = new Point(23, 136);
-            dataGridViewClientes.Name = "dataGridViewClientes";
-            dataGridViewClientes.ShowEditingIcon = false;
-            dataGridViewClientes.Size = new Size(626, 354);
-            dataGridViewClientes.TabIndex = 100;
-            dataGridViewClientes.CellClick += dataGridViewClientes_CellClick;
-            // 
-            // txtSearchByCedula
-            // 
-            txtSearchByCedula.Location = new Point(110, 95);
-            txtSearchByCedula.Name = "txtSearchByCedula";
-            txtSearchByCedula.Size = new Size(142, 23);
-            txtSearchByCedula.TabIndex = 1;
-            txtSearchByCedula.KeyDown += txtSearchByCedula_KeyDown;
-            // 
-            // buttonBuscarCliente
-            // 
-            buttonBuscarCliente.Location = new Point(258, 95);
-            buttonBuscarCliente.Name = "buttonBuscarCliente";
-            buttonBuscarCliente.Size = new Size(75, 23);
-            buttonBuscarCliente.TabIndex = 2;
-            buttonBuscarCliente.Text = "Buscar";
-            buttonBuscarCliente.UseVisualStyleBackColor = true;
-            buttonBuscarCliente.Click += buttonBuscarCliente_Click;
-            // 
-            // lblClientesTitle
-            // 
-            lblClientesTitle.AutoSize = true;
-            lblClientesTitle.BackColor = Color.FromArgb(20, 37, 78);
-            lblClientesTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            lblClientesTitle.ForeColor = SystemColors.Control;
-            lblClientesTitle.Location = new Point(23, 38);
-            lblClientesTitle.Name = "lblClientesTitle";
-            lblClientesTitle.Size = new Size(259, 37);
-            lblClientesTitle.TabIndex = 3;
-            lblClientesTitle.Text = "Listado de Clientes";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.FromArgb(20, 37, 78);
-            label1.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(23, 90);
-            label1.Name = "label1";
-            label1.Size = new Size(81, 28);
-            label1.TabIndex = 4;
-            label1.Text = "Cedula:";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -162,10 +99,10 @@
             panel1.Controls.Add(lblClienteInfo);
             panel1.Controls.Add(textBox1);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(676, 0);
+            panel1.Location = new Point(696, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(483, 553);
-            panel1.TabIndex = 5;
+            panel1.Size = new Size(483, 571);
+            panel1.TabIndex = 105;
             // 
             // panel2
             // 
@@ -185,7 +122,7 @@
             panel2.Dock = DockStyle.Right;
             panel2.Location = new Point(33, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(450, 553);
+            panel2.Size = new Size(450, 571);
             panel2.TabIndex = 14;
             // 
             // panel3
@@ -206,133 +143,43 @@
             panel3.Dock = DockStyle.Right;
             panel3.Location = new Point(-20, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(470, 553);
+            panel3.Size = new Size(470, 571);
             panel3.TabIndex = 16;
             // 
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(25, 30, 70);
-            panel4.Controls.Add(txtNombres);
-            panel4.Controls.Add(btnCrearCliente);
-            panel4.Controls.Add(dtpFechaNacimiento);
-            panel4.Controls.Add(label26);
-            panel4.Controls.Add(txtReferencia);
-            panel4.Controls.Add(label25);
-            panel4.Controls.Add(label24);
-            panel4.Controls.Add(txtTelefono);
-            panel4.Controls.Add(label18);
-            panel4.Controls.Add(txtCorreo);
+            panel4.Controls.Add(txtNombre);
+            panel4.Controls.Add(btnEnviar);
             panel4.Controls.Add(label19);
-            panel4.Controls.Add(txtDireccion);
+            panel4.Controls.Add(txtDescripcion);
             panel4.Controls.Add(label20);
-            panel4.Controls.Add(txtApellidos);
-            panel4.Controls.Add(label21);
-            panel4.Controls.Add(txtCedula);
+            panel4.Controls.Add(txtPrecio);
             panel4.Controls.Add(label22);
             panel4.Controls.Add(label23);
             panel4.Dock = DockStyle.Right;
             panel4.Location = new Point(-10, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(480, 553);
+            panel4.Size = new Size(480, 571);
             panel4.TabIndex = 16;
             // 
-            // txtNombres
+            // txtNombre
             // 
-            txtNombres.AcceptsTab = true;
-            txtNombres.Location = new Point(175, 162);
-            txtNombres.Name = "txtNombres";
-            txtNombres.Size = new Size(245, 23);
-            txtNombres.TabIndex = 5;
+            txtNombre.AcceptsTab = true;
+            txtNombre.Location = new Point(174, 126);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(245, 23);
+            txtNombre.TabIndex = 5;
             // 
-            // btnCrearCliente
+            // btnEnviar
             // 
-            btnCrearCliente.Location = new Point(24, 480);
-            btnCrearCliente.Name = "btnCrearCliente";
-            btnCrearCliente.Size = new Size(396, 49);
-            btnCrearCliente.TabIndex = 13;
-            btnCrearCliente.Text = "Enviar";
-            btnCrearCliente.UseVisualStyleBackColor = true;
-            btnCrearCliente.Click += btnCrearCliente_Click;
-            // 
-            // dtpFechaNacimiento
-            // 
-            dtpFechaNacimiento.Location = new Point(174, 361);
-            dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            dtpFechaNacimiento.Size = new Size(245, 23);
-            dtpFechaNacimiento.TabIndex = 10;
-            // 
-            // label26
-            // 
-            label26.AutoSize = true;
-            label26.BackColor = Color.Transparent;
-            label26.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            label26.ForeColor = SystemColors.Control;
-            label26.Location = new Point(24, 418);
-            label26.Name = "label26";
-            label26.Size = new Size(118, 28);
-            label26.TabIndex = 21;
-            label26.Text = "Referencia:";
-            label26.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // txtReferencia
-            // 
-            txtReferencia.Location = new Point(175, 423);
-            txtReferencia.Name = "txtReferencia";
-            txtReferencia.Size = new Size(245, 23);
-            txtReferencia.TabIndex = 12;
-            // 
-            // label25
-            // 
-            label25.BackColor = Color.Transparent;
-            label25.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            label25.ForeColor = SystemColors.Control;
-            label25.Location = new Point(24, 351);
-            label25.Name = "label25";
-            label25.Size = new Size(149, 56);
-            label25.TabIndex = 19;
-            label25.Text = "Fecha de nacimiento:";
-            label25.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // label24
-            // 
-            label24.AutoSize = true;
-            label24.BackColor = Color.Transparent;
-            label24.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            label24.ForeColor = SystemColors.Control;
-            label24.Location = new Point(24, 306);
-            label24.Name = "label24";
-            label24.Size = new Size(99, 28);
-            label24.TabIndex = 17;
-            label24.Text = "Telefono:";
-            label24.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // txtTelefono
-            // 
-            txtTelefono.Location = new Point(175, 310);
-            txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(245, 23);
-            txtTelefono.TabIndex = 9;
-            txtTelefono.TextChanged += txtTelefono_TextChanged;
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.BackColor = Color.Transparent;
-            label18.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            label18.ForeColor = SystemColors.Control;
-            label18.Location = new Point(24, 269);
-            label18.Name = "label18";
-            label18.Size = new Size(80, 28);
-            label18.TabIndex = 15;
-            label18.Text = "Correo:";
-            label18.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // txtCorreo
-            // 
-            txtCorreo.Location = new Point(175, 274);
-            txtCorreo.Name = "txtCorreo";
-            txtCorreo.Size = new Size(245, 23);
-            txtCorreo.TabIndex = 8;
+            btnEnviar.Location = new Point(30, 269);
+            btnEnviar.Name = "btnEnviar";
+            btnEnviar.Size = new Size(396, 49);
+            btnEnviar.TabIndex = 13;
+            btnEnviar.Text = "Enviar";
+            btnEnviar.UseVisualStyleBackColor = true;
+            btnEnviar.Click += btnEnviar_Click;
             // 
             // label19
             // 
@@ -340,19 +187,19 @@
             label19.BackColor = Color.Transparent;
             label19.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             label19.ForeColor = SystemColors.Control;
-            label19.Location = new Point(24, 233);
+            label19.Location = new Point(23, 197);
             label19.Name = "label19";
-            label19.Size = new Size(107, 28);
+            label19.Size = new Size(128, 28);
             label19.TabIndex = 13;
-            label19.Text = "Dirección:";
+            label19.Text = "Descripción:";
             label19.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // txtDireccion
+            // txtDescripcion
             // 
-            txtDireccion.Location = new Point(175, 237);
-            txtDireccion.Name = "txtDireccion";
-            txtDireccion.Size = new Size(245, 23);
-            txtDireccion.TabIndex = 7;
+            txtDescripcion.Location = new Point(174, 201);
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new Size(245, 23);
+            txtDescripcion.TabIndex = 7;
             // 
             // label20
             // 
@@ -360,39 +207,19 @@
             label20.BackColor = Color.Transparent;
             label20.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             label20.ForeColor = SystemColors.Control;
-            label20.Location = new Point(24, 194);
+            label20.Location = new Point(23, 158);
             label20.Name = "label20";
-            label20.Size = new Size(105, 28);
+            label20.Size = new Size(76, 28);
             label20.TabIndex = 11;
-            label20.Text = "Apellidos:";
+            label20.Text = "Precio:";
             label20.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // txtApellidos
+            // txtPrecio
             // 
-            txtApellidos.Location = new Point(175, 199);
-            txtApellidos.Name = "txtApellidos";
-            txtApellidos.Size = new Size(245, 23);
-            txtApellidos.TabIndex = 6;
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.BackColor = Color.Transparent;
-            label21.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            label21.ForeColor = SystemColors.Control;
-            label21.Location = new Point(24, 121);
-            label21.Name = "label21";
-            label21.Size = new Size(81, 28);
-            label21.TabIndex = 9;
-            label21.Text = "Cedula:";
-            label21.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // txtCedula
-            // 
-            txtCedula.Location = new Point(175, 126);
-            txtCedula.Name = "txtCedula";
-            txtCedula.Size = new Size(245, 23);
-            txtCedula.TabIndex = 4;
+            txtPrecio.Location = new Point(174, 163);
+            txtPrecio.Name = "txtPrecio";
+            txtPrecio.Size = new Size(245, 23);
+            txtPrecio.TabIndex = 6;
             // 
             // label22
             // 
@@ -400,11 +227,11 @@
             label22.BackColor = Color.Transparent;
             label22.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             label22.ForeColor = SystemColors.Control;
-            label22.Location = new Point(24, 157);
+            label22.Location = new Point(23, 121);
             label22.Name = "label22";
-            label22.Size = new Size(103, 28);
+            label22.Size = new Size(94, 28);
             label22.TabIndex = 7;
-            label22.Text = "Nombres:";
+            label22.Text = "Nombre:";
             label22.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label23
@@ -415,9 +242,9 @@
             label23.ForeColor = SystemColors.Control;
             label23.Location = new Point(24, 59);
             label23.Name = "label23";
-            label23.Size = new Size(318, 37);
+            label23.Size = new Size(328, 37);
             label23.TabIndex = 6;
-            label23.Text = "Información del Cliente";
+            label23.Text = "Información del servicio";
             // 
             // label12
             // 
@@ -735,24 +562,99 @@
             textBox1.Size = new Size(142, 23);
             textBox1.TabIndex = 6;
             // 
-            // FormGestionClientes
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.FromArgb(20, 37, 78);
+            label1.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            label1.ForeColor = SystemColors.Control;
+            label1.Location = new Point(12, 70);
+            label1.Name = "label1";
+            label1.Size = new Size(83, 28);
+            label1.TabIndex = 104;
+            label1.Text = "Código:";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Click += label1_Click;
+            // 
+            // lblClientesTitle
+            // 
+            lblClientesTitle.AutoSize = true;
+            lblClientesTitle.BackColor = Color.FromArgb(20, 37, 78);
+            lblClientesTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblClientesTitle.ForeColor = SystemColors.Control;
+            lblClientesTitle.Location = new Point(12, 18);
+            lblClientesTitle.Name = "lblClientesTitle";
+            lblClientesTitle.Size = new Size(272, 37);
+            lblClientesTitle.TabIndex = 103;
+            lblClientesTitle.Text = "Listado de Servicios";
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.Location = new Point(529, 74);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(75, 23);
+            btnBuscar.TabIndex = 102;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
+            // 
+            // txtSearchByCodigo
+            // 
+            txtSearchByCodigo.Location = new Point(99, 75);
+            txtSearchByCodigo.Name = "txtSearchByCodigo";
+            txtSearchByCodigo.Size = new Size(142, 23);
+            txtSearchByCodigo.TabIndex = 101;
+            txtSearchByCodigo.KeyDown += txtSearchByCodigo_KeyDown;
+            // 
+            // dgvServicios
+            // 
+            dgvServicios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvServicios.BackgroundColor = Color.White;
+            dgvServicios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvServicios.Location = new Point(12, 116);
+            dgvServicios.Name = "dgvServicios";
+            dgvServicios.ShowEditingIcon = false;
+            dgvServicios.Size = new Size(626, 354);
+            dgvServicios.TabIndex = 106;
+            dgvServicios.CellClick += dgvServicios_CellClick;
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.BackColor = Color.FromArgb(20, 37, 78);
+            label27.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            label27.ForeColor = SystemColors.Control;
+            label27.Location = new Point(257, 70);
+            label27.Name = "label27";
+            label27.Size = new Size(94, 28);
+            label27.TabIndex = 108;
+            label27.Text = "Nombre:";
+            label27.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // txtSearchByNombre
+            // 
+            txtSearchByNombre.Location = new Point(357, 75);
+            txtSearchByNombre.Name = "txtSearchByNombre";
+            txtSearchByNombre.Size = new Size(142, 23);
+            txtSearchByNombre.TabIndex = 107;
+            txtSearchByNombre.KeyDown += txtSearchByNombre_KeyDown;
+            // 
+            // FormServicios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(20, 37, 78);
-            ClientSize = new Size(1159, 553);
+            ClientSize = new Size(1179, 571);
+            Controls.Add(label27);
+            Controls.Add(txtSearchByNombre);
             Controls.Add(panel1);
             Controls.Add(label1);
             Controls.Add(lblClientesTitle);
-            Controls.Add(buttonBuscarCliente);
-            Controls.Add(txtSearchByCedula);
-            Controls.Add(dataGridViewClientes);
-            Name = "FormGestionClientes";
-            Text = "Gestion de Clientes";
-            TopMost = true;
-            TransparencyKey = Color.FromArgb(20, 37, 78);
-            Load += FormGestionClientes_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).EndInit();
+            Controls.Add(btnBuscar);
+            Controls.Add(txtSearchByCodigo);
+            Controls.Add(dgvServicios);
+            Name = "FormServicios";
+            Text = "Reportes";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -761,41 +663,36 @@
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvServicios).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridViewClientes;
-        private TextBox txtSearchByCedula;
-        private Button buttonBuscarCliente;
-        private Label lblClientesTitle;
-        private Label label1;
         private Panel panel1;
-        private Label lblClienteInfo;
         private Label label4;
         private TextBox textBox3;
         private Label label3;
         private TextBox textBox2;
         private Label label2;
+        private Label lblClienteInfo;
         private TextBox textBox1;
+        private Label label1;
+        private Label lblClientesTitle;
+        private Button btnBuscar;
+        private TextBox txtSearchByCodigo;
+        private DataGridView dgvServicios;
+        private Label label27;
+        private TextBox txtSearchByNombre;
         private Panel panel2;
         private Panel panel3;
         private Panel panel4;
-        private Label label26;
-        private TextBox txtReferencia;
-        private Label label25;
-        private Label label24;
-        private TextBox txtTelefono;
-        private Label label18;
-        private TextBox txtCorreo;
+        private TextBox txtNombre;
+        private Button btnEnviar;
         private Label label19;
-        private TextBox txtDireccion;
+        private TextBox txtDescripcion;
         private Label label20;
-        private TextBox txtApellidos;
-        private Label label21;
-        private TextBox txtCedula;
         private Label label22;
         private Label label23;
         private Label label12;
@@ -822,8 +719,6 @@
         private TextBox textBox8;
         private Label label5;
         private TextBox textBox4;
-        private DateTimePicker dtpFechaNacimiento;
-        private Button btnCrearCliente;
-        private TextBox txtNombres;
+        private TextBox txtPrecio;
     }
 }

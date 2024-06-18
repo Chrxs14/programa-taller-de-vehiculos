@@ -36,11 +36,12 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 40F);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(305, 175);
+            label1.Location = new Point(232, 175);
             label1.Name = "label1";
-            label1.Size = new Size(175, 72);
+            label1.Size = new Size(325, 72);
             label1.TabIndex = 0;
-            label1.Text = "Home";
+            label1.Text = "¡Bienvenido!";
+            label1.Click += label1_Click;
             // 
             // FormHome
             // 

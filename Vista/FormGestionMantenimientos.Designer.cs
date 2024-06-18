@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnEnviarDatosMantenimiento = new Button();
+            btnEnviar = new Button();
             label26 = new Label();
             label25 = new Label();
             label18 = new Label();
@@ -37,34 +37,33 @@
             label22 = new Label();
             lblMantenimientoInfo = new Label();
             panel4 = new Panel();
-            checkBox1 = new CheckBox();
-            comboBox3 = new ComboBox();
-            comboBox2 = new ComboBox();
-            comboBox1 = new ComboBox();
-            textBox1 = new TextBox();
-            dateTimePicker2 = new DateTimePicker();
-            btnCrearMantenimiento = new Button();
-            btnEditarMantenimiento = new Button();
+            txtTrabajosRealizados = new TextBox();
+            label1 = new Label();
+            clbServicios = new CheckedListBox();
+            cbEsCorrectivo = new CheckBox();
+            cmbVehiculo = new ComboBox();
+            cmbMecanico = new ComboBox();
+            cmbCliente = new ComboBox();
+            txtDiagnostico = new TextBox();
+            dtbFechaMantenimiento = new DateTimePicker();
             lblCodigoMantenimiento = new Label();
             lblMantenimientoTitle = new Label();
-            btnBuscarMantenimiento = new Button();
-            txtCodigoMantenimiento = new TextBox();
-            dataGridViewClientes = new DataGridView();
-            checkedListBox1 = new CheckedListBox();
-            label1 = new Label();
-            textBox2 = new TextBox();
+            btnBuscar = new Button();
+            txtBuscar = new TextBox();
+            dgvMantenimientos = new DataGridView();
             panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvMantenimientos).BeginInit();
             SuspendLayout();
             // 
-            // btnEnviarDatosMantenimiento
+            // btnEnviar
             // 
-            btnEnviarDatosMantenimiento.Location = new Point(24, 576);
-            btnEnviarDatosMantenimiento.Name = "btnEnviarDatosMantenimiento";
-            btnEnviarDatosMantenimiento.Size = new Size(427, 49);
-            btnEnviarDatosMantenimiento.TabIndex = 8;
-            btnEnviarDatosMantenimiento.Text = "Enviar";
-            btnEnviarDatosMantenimiento.UseVisualStyleBackColor = true;
+            btnEnviar.Location = new Point(24, 576);
+            btnEnviar.Name = "btnEnviar";
+            btnEnviar.Size = new Size(427, 49);
+            btnEnviar.TabIndex = 8;
+            btnEnviar.Text = "Enviar";
+            btnEnviar.UseVisualStyleBackColor = true;
+            btnEnviar.Click += btnEnviar_Click;
             // 
             // label26
             // 
@@ -158,16 +157,16 @@
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(25, 30, 70);
-            panel4.Controls.Add(textBox2);
+            panel4.Controls.Add(txtTrabajosRealizados);
             panel4.Controls.Add(label1);
-            panel4.Controls.Add(checkedListBox1);
-            panel4.Controls.Add(checkBox1);
-            panel4.Controls.Add(comboBox3);
-            panel4.Controls.Add(comboBox2);
-            panel4.Controls.Add(comboBox1);
-            panel4.Controls.Add(textBox1);
-            panel4.Controls.Add(dateTimePicker2);
-            panel4.Controls.Add(btnEnviarDatosMantenimiento);
+            panel4.Controls.Add(clbServicios);
+            panel4.Controls.Add(cbEsCorrectivo);
+            panel4.Controls.Add(cmbVehiculo);
+            panel4.Controls.Add(cmbMecanico);
+            panel4.Controls.Add(cmbCliente);
+            panel4.Controls.Add(txtDiagnostico);
+            panel4.Controls.Add(dtbFechaMantenimiento);
+            panel4.Controls.Add(btnEnviar);
             panel4.Controls.Add(label26);
             panel4.Controls.Add(label25);
             panel4.Controls.Add(label18);
@@ -181,75 +180,84 @@
             panel4.Size = new Size(480, 691);
             panel4.TabIndex = 17;
             // 
-            // checkBox1
+            // txtTrabajosRealizados
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            checkBox1.ForeColor = SystemColors.ButtonHighlight;
-            checkBox1.Location = new Point(175, 532);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(99, 23);
-            checkBox1.TabIndex = 28;
-            checkBox1.Text = "Correctivo";
-            checkBox1.UseVisualStyleBackColor = true;
+            txtTrabajosRealizados.Location = new Point(175, 489);
+            txtTrabajosRealizados.Multiline = true;
+            txtTrabajosRealizados.Name = "txtTrabajosRealizados";
+            txtTrabajosRealizados.Size = new Size(276, 37);
+            txtTrabajosRealizados.TabIndex = 31;
             // 
-            // comboBox3
+            // label1
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(175, 192);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(276, 23);
-            comboBox3.TabIndex = 27;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            label1.ForeColor = SystemColors.Control;
+            label1.Location = new Point(14, 489);
+            label1.Name = "label1";
+            label1.Size = new Size(130, 64);
+            label1.TabIndex = 30;
+            label1.Text = "Trabajos Realizados:";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // comboBox2
+            // clbServicios
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(175, 153);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(276, 23);
-            comboBox2.TabIndex = 26;
+            clbServicios.FormattingEnabled = true;
+            clbServicios.Location = new Point(175, 387);
+            clbServicios.Name = "clbServicios";
+            clbServicios.Size = new Size(276, 76);
+            clbServicios.TabIndex = 29;
             // 
-            // comboBox1
+            // cbEsCorrectivo
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(175, 113);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(276, 23);
-            comboBox1.TabIndex = 25;
+            cbEsCorrectivo.AutoSize = true;
+            cbEsCorrectivo.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            cbEsCorrectivo.ForeColor = SystemColors.ButtonHighlight;
+            cbEsCorrectivo.Location = new Point(175, 532);
+            cbEsCorrectivo.Name = "cbEsCorrectivo";
+            cbEsCorrectivo.Size = new Size(99, 23);
+            cbEsCorrectivo.TabIndex = 28;
+            cbEsCorrectivo.Text = "Correctivo";
             // 
-            // textBox1
+            // cmbVehiculo
             // 
-            textBox1.Location = new Point(175, 230);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(276, 72);
-            textBox1.TabIndex = 24;
+            cmbVehiculo.FormattingEnabled = true;
+            cmbVehiculo.Location = new Point(175, 192);
+            cmbVehiculo.Name = "cmbVehiculo";
+            cmbVehiculo.Size = new Size(276, 23);
+            cmbVehiculo.TabIndex = 27;
             // 
-            // dateTimePicker2
+            // cmbMecanico
             // 
-            dateTimePicker2.Anchor = AnchorStyles.None;
-            dateTimePicker2.Location = new Point(175, 333);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(276, 23);
-            dateTimePicker2.TabIndex = 23;
+            cmbMecanico.FormattingEnabled = true;
+            cmbMecanico.Location = new Point(175, 153);
+            cmbMecanico.Name = "cmbMecanico";
+            cmbMecanico.Size = new Size(276, 23);
+            cmbMecanico.TabIndex = 26;
             // 
-            // btnCrearMantenimiento
+            // cmbCliente
             // 
-            btnCrearMantenimiento.Location = new Point(426, 107);
-            btnCrearMantenimiento.Name = "btnCrearMantenimiento";
-            btnCrearMantenimiento.Size = new Size(75, 23);
-            btnCrearMantenimiento.TabIndex = 24;
-            btnCrearMantenimiento.Text = "Crear";
-            btnCrearMantenimiento.UseVisualStyleBackColor = true;
+            cmbCliente.FormattingEnabled = true;
+            cmbCliente.Location = new Point(175, 113);
+            cmbCliente.Name = "cmbCliente";
+            cmbCliente.Size = new Size(276, 23);
+            cmbCliente.TabIndex = 25;
             // 
-            // btnEditarMantenimiento
+            // txtDiagnostico
             // 
-            btnEditarMantenimiento.Location = new Point(345, 107);
-            btnEditarMantenimiento.Name = "btnEditarMantenimiento";
-            btnEditarMantenimiento.Size = new Size(75, 23);
-            btnEditarMantenimiento.TabIndex = 23;
-            btnEditarMantenimiento.Text = "Editar";
-            btnEditarMantenimiento.UseVisualStyleBackColor = true;
+            txtDiagnostico.Location = new Point(175, 230);
+            txtDiagnostico.Multiline = true;
+            txtDiagnostico.Name = "txtDiagnostico";
+            txtDiagnostico.Size = new Size(276, 72);
+            txtDiagnostico.TabIndex = 24;
+            // 
+            // dtbFechaMantenimiento
+            // 
+            dtbFechaMantenimiento.Anchor = AnchorStyles.None;
+            dtbFechaMantenimiento.Location = new Point(175, 333);
+            dtbFechaMantenimiento.Name = "dtbFechaMantenimiento";
+            dtbFechaMantenimiento.Size = new Size(276, 23);
+            dtbFechaMantenimiento.TabIndex = 23;
             // 
             // lblCodigoMantenimiento
             // 
@@ -276,59 +284,36 @@
             lblMantenimientoTitle.TabIndex = 21;
             lblMantenimientoTitle.Text = "Listado de Mantenimientos";
             // 
-            // btnBuscarMantenimiento
+            // btnBuscar
             // 
-            btnBuscarMantenimiento.Location = new Point(264, 107);
-            btnBuscarMantenimiento.Name = "btnBuscarMantenimiento";
-            btnBuscarMantenimiento.Size = new Size(75, 23);
-            btnBuscarMantenimiento.TabIndex = 20;
-            btnBuscarMantenimiento.Text = "Buscar";
-            btnBuscarMantenimiento.UseVisualStyleBackColor = true;
+            btnBuscar.Location = new Point(264, 107);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(75, 23);
+            btnBuscar.TabIndex = 20;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
-            // txtCodigoMantenimiento
+            // txtBuscar
             // 
-            txtCodigoMantenimiento.Location = new Point(116, 107);
-            txtCodigoMantenimiento.Name = "txtCodigoMantenimiento";
-            txtCodigoMantenimiento.Size = new Size(142, 23);
-            txtCodigoMantenimiento.TabIndex = 19;
+            txtBuscar.Location = new Point(116, 107);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(142, 23);
+            txtBuscar.TabIndex = 19;
+            txtBuscar.KeyDown += txtBuscar_KeyDown;
             // 
-            // dataGridViewClientes
+            // dgvMantenimientos
             // 
-            dataGridViewClientes.BackgroundColor = Color.White;
-            dataGridViewClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewClientes.Location = new Point(29, 148);
-            dataGridViewClientes.Name = "dataGridViewClientes";
-            dataGridViewClientes.ShowEditingIcon = false;
-            dataGridViewClientes.Size = new Size(626, 354);
-            dataGridViewClientes.TabIndex = 18;
-            // 
-            // checkedListBox1
-            // 
-            checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Location = new Point(175, 387);
-            checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(276, 76);
-            checkedListBox1.TabIndex = 29;
-            // 
-            // label1
-            // 
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(14, 489);
-            label1.Name = "label1";
-            label1.Size = new Size(130, 64);
-            label1.TabIndex = 30;
-            label1.Text = "Trabajos Realizados:";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(175, 489);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(276, 37);
-            textBox2.TabIndex = 31;
+            dgvMantenimientos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvMantenimientos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvMantenimientos.BackgroundColor = Color.White;
+            dgvMantenimientos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvMantenimientos.Location = new Point(29, 148);
+            dgvMantenimientos.Name = "dgvMantenimientos";
+            dgvMantenimientos.ShowEditingIcon = false;
+            dgvMantenimientos.Size = new Size(628, 378);
+            dgvMantenimientos.TabIndex = 18;
+            dgvMantenimientos.CellClick += dgvMantenimientos_CellClick;
             // 
             // FormGestionMantenimientos
             // 
@@ -336,26 +321,24 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(20, 37, 78);
             ClientSize = new Size(1159, 691);
-            Controls.Add(btnCrearMantenimiento);
-            Controls.Add(btnEditarMantenimiento);
             Controls.Add(lblCodigoMantenimiento);
             Controls.Add(lblMantenimientoTitle);
-            Controls.Add(btnBuscarMantenimiento);
-            Controls.Add(txtCodigoMantenimiento);
-            Controls.Add(dataGridViewClientes);
+            Controls.Add(btnBuscar);
+            Controls.Add(txtBuscar);
+            Controls.Add(dgvMantenimientos);
             Controls.Add(panel4);
             Name = "FormGestionMantenimientos";
             Text = "Gestion de Mantenimientos";
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvMantenimientos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button btnEnviarDatosMantenimiento;
+        private Button btnEnviar;
         private DateTimePicker dateTimePicker1;
         private Label label26;
         private Label label25;
@@ -370,17 +353,17 @@
         private Button btnEditarMantenimiento;
         private Label lblCodigoMantenimiento;
         private Label lblMantenimientoTitle;
-        private Button btnBuscarMantenimiento;
-        private TextBox txtCodigoMantenimiento;
-        private DataGridView dataGridViewClientes;
-        private DateTimePicker dateTimePicker2;
-        private ComboBox comboBox3;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
-        private TextBox textBox1;
-        private CheckBox checkBox1;
-        private CheckedListBox checkedListBox1;
-        private TextBox textBox2;
+        private Button btnBuscar;
+        private TextBox txtBuscar;
+        private DataGridView dgvMantenimientos;
+        private DateTimePicker dtbFechaMantenimiento;
+        private ComboBox cmbVehiculo;
+        private ComboBox cmbMecanico;
+        private ComboBox cmbCliente;
+        private TextBox txtDiagnostico;
+        private CheckBox cbEsCorrectivo;
+        private CheckedListBox clbServicios;
+        private TextBox txtTrabajosRealizados;
         private Label label1;
     }
 }
