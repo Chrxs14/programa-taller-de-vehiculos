@@ -161,7 +161,7 @@ namespace POE_proyecto.Vista
         private void reportBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new FormReporte(CtlPrincipal));
+            OpenChildForm(new FormServicios(CtlPrincipal));
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

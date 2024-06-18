@@ -40,11 +40,11 @@ namespace POE_proyecto.Controlador
         public void agregarDatosQuemados()
         {
             // Servicios
-            ctlServicio.AgregarServicio("Lavado exterior", 30.0f, "Lavado exterior del vehículo");
-            ctlServicio.AgregarServicio("Lavado interior", 40.0f, "Limpieza interior del vehículo");
-            ctlServicio.AgregarServicio("Encerado", 50.0f, "Encerado para protección de la pintura");
-            ctlServicio.AgregarServicio("Aspirado de interiores", 25.0f, "Aspirado y limpieza de alfombras y asientos");
-            ctlServicio.AgregarServicio("Pulido de faros", 20.0f, "Pulido y restauración de faros delanteros");
+            ctlServicio.AgregarServicio("Lavado exterior", 30.00f, "Lavado exterior del vehículo");
+            ctlServicio.AgregarServicio("Lavado interior", 39.99f, "Limpieza interior del vehículo");
+            ctlServicio.AgregarServicio("Encerado", 50.75f, "Encerado para protección de la pintura");
+            ctlServicio.AgregarServicio("Aspirado de interiores", 25.10f, "Aspirado y limpieza de alfombras y asientos");
+            ctlServicio.AgregarServicio("Pulido de faros", 20.02f, "Pulido y restauración de faros delanteros");
 
             // Clientes
             ctlCliente.AgregarCliente("1010101010", "Juan", "Perez", "Av. Principal 123", "juan@gmail.com", "0990104149", new DateTime(1985, 3, 12), "Referencia Cliente 1");

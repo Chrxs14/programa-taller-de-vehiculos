@@ -101,7 +101,12 @@ namespace POE_proyecto.Utilidades
         /// </returns>
         public static bool ValidarCamposServicio(string nombre, float precio, string descripcion)
         {
-            return ValidarCadena(nombre) && precio >= 0.00 && ValidarCadena(descripcion);
+            return ValidarCadena(nombre) && ValidarPrecio(precio) && ValidarCadena(descripcion);
+        }
+
+        public static bool ValidarPrecio(float precio)
+        {
+            return precio >= 0.00;
         }
 
         /// <summary>

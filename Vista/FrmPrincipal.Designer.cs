@@ -82,7 +82,7 @@
             reportBtn.Padding = new Padding(10, 0, 20, 0);
             reportBtn.Size = new Size(220, 60);
             reportBtn.TabIndex = 5;
-            reportBtn.Text = "Reportes";
+            reportBtn.Text = "Servicios";
             reportBtn.TextAlign = ContentAlignment.MiddleLeft;
             reportBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
             reportBtn.UseVisualStyleBackColor = true;
